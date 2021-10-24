@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.dama.Login">
+    package="com.dama.DamA">
 
     <application
         android:allowBackup="true"
@@ -11,7 +11,7 @@
         android:theme="@style/Theme.AppCompat.Light.NoActionBar"
         >
         <activity
-            android:name=".DetailCafeActivity"
+            android:name="com.dama.DamA.DetailCafeActivity"
             android:exported="true"
             android:label="@string/title_activity_test"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar">
@@ -22,7 +22,7 @@
 <!--                        </intent-filter>-->
         </activity>
         <activity
-            android:name=".SettingCafeActivity"
+            android:name="com.dama.DamA.SettingCafeActivity"
             android:exported="true"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar">
 <!--            <intent-filter>-->
@@ -32,13 +32,13 @@
 <!--            </intent-filter>-->
         </activity>
         <activity
-            android:name=".UserJoinViewActivity"
+            android:name="com.dama.DamA.UserJoinViewActivity"
             android:exported="false" />
         <activity
-            android:name=".OwnerJoinActivity"
+            android:name="com.dama.DamA.OwnerJoinActivity"
             android:exported="false" /> <!-- android:theme="@style/Theme.DAMA" -->
         <activity
-            android:name=".LoginActivity"
+            android:name="com.dama.DamA.LoginActivity"
             android:exported="true">
 
              <intent-filter>
