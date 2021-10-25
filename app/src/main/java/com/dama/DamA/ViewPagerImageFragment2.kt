@@ -1,13 +1,12 @@
-package com.example.viewpager2
+package com.dama.DamA
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.dama.DamA.R
 
-class Fragment2 : Fragment() {
+class ImageFragment2 : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,

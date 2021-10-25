@@ -17,11 +17,11 @@ class ViewPagerAdapterClass(fragmentActivity: FragmentActivity) : FragmentStateA
 
     override fun createFragment(position: Int): Fragment {
         if(position == 0) {
-            return Fragment1()
+            return ImageFragment1()
         }else if(position == 1) {
-            return Fragment2()
+            return ImageFragment2()
         }else {
-            return Fragment3()
+            return ImageFragment3()
         }
     }
 }

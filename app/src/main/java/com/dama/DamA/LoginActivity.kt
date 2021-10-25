@@ -12,12 +12,16 @@ class LoginActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding= ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        //회원가입 시
         binding.LoginViewJoinTv.setOnClickListener {
             startActivity(Intent(this, UserJoinViewActivity::class.java))
 
         }
+
+        //로그인 시
         binding.LoginViewLoginBtn.setOnClickListener {
-            startActivity((Intent(this, SettingCafeActivity::class.java)))
+            startActivity((Intent(this, OwnermainviewActivity::class.java)))
         }
 
     }
