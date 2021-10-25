@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageButton
+        android:id="@+id/OwnerMenuView_previousmove_ib"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:src="@drawable/previous_move"
+        android:scaleType="centerCrop"
+        android:background="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"/>
+
+    <LinearLayout
+        android:id="@+id/OwnerMenuView_myprofile_lo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="50dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageButton
+                android:id="@+id/OwnerMenuView_myprofile_ib"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginBottom="30dp"
+                android:src="@drawable/profile"
+                android:scaleType="centerCrop"
+                android:background="@color/white"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"/>
+
+            <TextView
+                android:id="@+id/OwnerMenuView_myprofile_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="내 프로필"
+                android:textSize="20sp"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:layout_marginStart="10dp"
+                app:layout_constraintStart_toEndOf="@id/OwnerMenuView_myprofile_ib"
+                app:layout_constraintTop_toTopOf="@id/OwnerMenuView_myprofile_ib"
+                app:layout_constraintBottom_toBottomOf="@id/OwnerMenuView_myprofile_ib" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/OwnerMenuView_whatisdama_lo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/OwnerMenuView_myprofile_lo">
+
+        <TextView
+            android:id="@+id/OwnerMenuView_whatisdama_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="'담or'가 무엇인가요?"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:layout_marginStart="20dp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/OwnerMenuView_location_lo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingTop="11dp"
+        android:paddingBottom="11dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/OwnerMenuView_whatisdama_lo">
+
+        <TextView
+            android:id="@+id/OwnerMenuView_location_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="공지사항"
+            android:textColor="@color/black"
+            android:textSize="15sp"
+            android:layout_marginStart="20dp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/OwnerMenuView_event_lo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingTop="11dp"
+        android:paddingBottom="11dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/OwnerMenuView_location_lo">
+
+        <TextView
+            android:id="@+id/OwnerMenuView_event_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="이벤트"
+            android:textColor="@color/black"
+            android:textSize="15sp"
+            android:layout_marginStart="20dp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/OwnerMenuView_helpcenter_lo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingTop="11dp"
+        android:paddingBottom="11dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/OwnerMenuView_event_lo">
+
+        <TextView
+            android:id="@+id/OwnerMenuView_helpcenter_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="고객센터"
+            android:textColor="@color/black"
+            android:textSize="15sp"
+            android:layout_marginStart="20dp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/OwnerMenuView_setting_lo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingTop="11dp"
+        android:paddingBottom="11dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/OwnerMenuView_helpcenter_lo">
+
+        <TextView
+            android:id="@+id/OwnerMenuView_setting_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="환경설정"
+            android:textColor="@color/black"
+            android:textSize="15sp"
+            android:layout_marginStart="20dp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/OwnerMenuView_clause_lo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingTop="11dp"
+        android:paddingBottom="11dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/OwnerMenuView_setting_lo">
+
+        <TextView
+            android:id="@+id/OwnerMenuView_clause_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="약관 및 정책"
+            android:textColor="@color/black"
+            android:textSize="15sp"
+            android:layout_marginStart="20dp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/OwnerMenuView_version_lo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingTop="11dp"
+        android:paddingBottom="11dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/OwnerMenuView_clause_lo">
+
+        <TextView
+            android:id="@+id/OwnerMenuView_version_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="현재 버전"
+            android:textColor="@color/black"
+            android:textSize="15sp"
+            android:layout_marginStart="20dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/OwnerMenuView_withrawal_lo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingTop="11dp"
+        android:paddingBottom="11dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/OwnerMenuView_version_lo">
+
+        <TextView
+            android:id="@+id/OwnerMenuView_withrawal_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="회원탈퇴"
+            android:textColor="@color/black"
+            android:textSize="15sp"
+            android:layout_marginStart="20dp" />
+    </LinearLayout>
+
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/OwnerMenuView_logout_cv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="30dp"
+        app:cardCornerRadius="20dp"
+        android:backgroundTint="@color/mainColor"
+        >
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/OwnerMenuView_logout_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="로그아웃"
+                android:textSize="25dp"
+                android:paddingStart="20dp"
+                android:paddingEnd="20dp"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:textColor="@color/black"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </androidx.cardview.widget.CardView>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
