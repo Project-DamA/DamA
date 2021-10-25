@@ -13,7 +13,6 @@
         <activity
             android:name="com.dama.DamA.LoginActivity"
             android:exported="true">
-
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -22,7 +21,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.dama.DamA.UserJoinViewActivity"
+            android:name="com.dama.DamA.UserJoinActivity"
             android:exported="false" />
         <activity
             android:name="com.dama.DamA.OwnerJoinActivity"
@@ -37,13 +36,13 @@
             android:exported="false"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
         <activity
-            android:name="com.dama.DamA.UserSearchViewActivity"
+            android:name="com.dama.DamA.UserSearchActivity"
             android:exported="false"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
         <activity
-            android:name="com.dama.DamA.OwnermainviewActivity"
+            android:name="com.dama.DamA.OwnerMainActivity"
             android:exported="false"/>
-        <activity android:name="com.dama.DamA.OwnermenuviewActivity"/>
+        <activity android:name="com.dama.DamA.OwnerMenuActivity"/>
 
         <activity
             android:name="com.dama.DamA.UserMainActivity"

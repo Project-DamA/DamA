@@ -7,7 +7,7 @@ import android.os.Bundle
 import com.dama.DamA.databinding.ActivityOwnerMainBinding
 
 
-class OwnermainviewActivity : AppCompatActivity() {
+class OwnerMainActivity : AppCompatActivity() {
     
     lateinit var binding : ActivityOwnerMainBinding
 
@@ -16,9 +16,15 @@ class OwnermainviewActivity : AppCompatActivity() {
         binding = ActivityOwnerMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        //더보기 버튼
         binding.OwnerMainViewMoreIb.setOnClickListener {
-            startActivity(Intent(this, OwnermenuviewActivity::class.java))
+            startActivity(Intent(this, OwnerMenuActivity::class.java))
         }
+        //내 카페 설정
+        binding.OwnerMainViewMycafeCv.setOnClickListener {
+            startActivity(Intent(this,SettingCafeActivity::class.java))
+        }
+
 
         // cafeadpater와 연결
         val cafeAdapter = MyCafeAdapterClass(this)

@@ -4,7 +4,6 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.viewpager2.widget.ViewPager2
 import com.dama.DamA.databinding.ActivitySettingCafeBinding
-import com.example.viewpager2.ViewPagerAdapterClass
 
 
 class SettingCafeActivity : AppCompatActivity() {

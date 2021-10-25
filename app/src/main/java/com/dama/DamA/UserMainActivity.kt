@@ -4,7 +4,6 @@ package com.dama.DamA
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.bbangjun.dama_owner.UserCafeAdapterClass
 import com.dama.DamA.databinding.ActivityUserMainBinding
 
 
@@ -17,6 +16,8 @@ class UserMainActivity : AppCompatActivity() {
         binding = ActivityUserMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+
+        //더보기 버튼
         binding.UserMainViewMoreIb.setOnClickListener {
             startActivity(Intent(this, UserMenuActivity::class.java))
         }

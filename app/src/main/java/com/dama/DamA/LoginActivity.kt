@@ -15,13 +15,13 @@ class LoginActivity : AppCompatActivity() {
 
         //회원가입 시
         binding.LoginViewJoinTv.setOnClickListener {
-            startActivity(Intent(this, UserJoinViewActivity::class.java))
+            startActivity(Intent(this, UserJoinActivity::class.java))
 
         }
 
         //로그인 시
         binding.LoginViewLoginBtn.setOnClickListener {
-            startActivity((Intent(this, OwnermainviewActivity::class.java)))
+            startActivity((Intent(this, OwnerMainActivity::class.java)))
         }
 
     }

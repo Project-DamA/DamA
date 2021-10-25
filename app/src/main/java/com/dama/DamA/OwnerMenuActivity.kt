@@ -4,7 +4,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.dama.DamA.databinding.ActivityOwnerMenuBinding
 
-class OwnermenuviewActivity : AppCompatActivity(){
+class OwnerMenuActivity : AppCompatActivity(){
 
     lateinit var binding : ActivityOwnerMenuBinding
 

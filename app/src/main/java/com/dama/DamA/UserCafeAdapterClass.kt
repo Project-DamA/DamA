@@ -2,9 +2,6 @@ package com.dama.DamA
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import androidx.viewpager2.adapter.FragmentStateAdapter
-import com.example.viewpager2.ImageFragment1
-import com.example.viewpager2.ImageFragment2
-import com.example.viewpager2.ImageFragment3
 
 
 class UserCafeAdapterClass(fragmentActivity: FragmentActivity) : FragmentStateAdapter(fragmentActivity){
