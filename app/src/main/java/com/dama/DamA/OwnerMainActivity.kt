@@ -22,7 +22,7 @@ class OwnerMainActivity : AppCompatActivity() {
         }
         //내 카페 설정
         binding.OwnerMainViewMycafeCv.setOnClickListener {
-            startActivity(Intent(this,SettingCafeActivity::class.java))
+            startActivity(Intent(this,SettingCafeTopActivity::class.java))
         }
 
 

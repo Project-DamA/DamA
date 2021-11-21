@@ -4,15 +4,60 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".LoginActivity">
+    tools:context=".UserLoginActivity">
 
+
+    <View
+        android:id="@+id/OwnerLoginView_backRectangle_view"
+        android:layout_width="200dp"
+        android:layout_height="260dp"
+        android:background="@drawable/join_view_half_user"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.73" />
+
+    <RelativeLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/OwnerLoginView_backRectangle_view">
+
+        <TextView
+            android:id="@+id/OwnerLoginView_admin_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerHorizontal="false"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="16dp"
+            android:text="사장님"
+            android:textColor="#FFFFFF"
+            android:textSize="24dp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/OwnerLoginView_user_Btn"
+            android:layout_width="120dp"
+            android:layout_height="50dp"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="16dp"
+            android:background="@drawable/admin_user_btn"
+            android:text="사용자"
+            android:textColor="@color/mainColor"
+            android:textSize="24dp" />
+    </RelativeLayout>
 
     <ImageView
-        android:id="@+id/LoginView_Logo_iv"
+        android:id="@+id/OwnerLoginView_Logo_iv"
         android:layout_width="188dp"
         android:layout_height="184dp"
         android:layout_marginTop="44dp"
-        app:layout_constraintBottom_toTopOf="@+id/LoginView_loginDetail_cv"
+        app:layout_constraintBottom_toTopOf="@+id/OwnerLoginView_loginDetail_cv"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
@@ -21,21 +66,21 @@
         app:srcCompat="@drawable/dama_logo_skyblue" />
 
     <TextView
-        android:id="@+id/LoginView_title_tv"
+        android:id="@+id/OwnerLoginView_title_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
         android:text="환경을 지키는 텀블러, 담아"
         android:textColor="@color/mainColor"
-        app:layout_constraintBottom_toTopOf="@+id/LoginView_loginDetail_cv"
+        app:layout_constraintBottom_toTopOf="@+id/OwnerLoginView_loginDetail_cv"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/LoginView_Logo_iv"
+        app:layout_constraintTop_toBottomOf="@+id/OwnerLoginView_Logo_iv"
         app:layout_constraintVertical_bias="0.0" />
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/LoginView_loginDetail_cv"
+        android:id="@+id/OwnerLoginView_loginDetail_cv"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
@@ -61,7 +106,7 @@
                 android:paddingEnd="6dp">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/LoginView_emailTextBox_editTxt"
+                    android:id="@+id/OwnerLoginView_emailTextBox_editTxt"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="#FFFCFC"
@@ -81,7 +126,7 @@
                 android:paddingEnd="6dp">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/LoginView_passwordTextBox_editTxt"
+                    android:id="@+id/OwnerLoginView_passwordTextBox_editTxt"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="#FFFFFF"
@@ -95,17 +140,17 @@
     </androidx.cardview.widget.CardView>
 
     <Button
-        android:id="@+id/LoginView_Login_btn"
+        android:id="@+id/OwnerLoginView_Login_btn"
         android:layout_width="279dp"
         android:layout_height="54dp"
         android:background="@drawable/login_join_btn"
         android:text="로그인"
         android:textColor="#FFFFFF"
         android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="@+id/LoginView_loginDetail_cv"
-        app:layout_constraintEnd_toEndOf="@+id/LoginView_loginDetail_cv"
-        app:layout_constraintStart_toStartOf="@+id/LoginView_loginDetail_cv"
-        app:layout_constraintTop_toBottomOf="@+id/LoginView_loginDetail_cv" />
+        app:layout_constraintBottom_toBottomOf="@+id/OwnerLoginView_loginDetail_cv"
+        app:layout_constraintEnd_toEndOf="@+id/OwnerLoginView_loginDetail_cv"
+        app:layout_constraintStart_toStartOf="@+id/OwnerLoginView_loginDetail_cv"
+        app:layout_constraintTop_toBottomOf="@+id/OwnerLoginView_loginDetail_cv" />
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -114,10 +159,10 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/LoginView_Login_btn">
+        app:layout_constraintTop_toBottomOf="@+id/OwnerLoginView_Login_btn">
 
         <TextView
-            android:id="@+id/LoginView_serachPassword_tv"
+            android:id="@+id/OwnerLoginView_serachPassword_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginRight="24dp"
@@ -127,7 +172,7 @@
             android:textSize="15dp" />
 
         <TextView
-            android:id="@+id/LoginView_join_tv"
+            android:id="@+id/OwnerLoginView_join_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="24dp"

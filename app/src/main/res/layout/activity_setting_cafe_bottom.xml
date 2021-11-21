@@ -1,0 +1,311 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:showIn="@layout/activity_setting_cafe_top">
+
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:context=".ui.home.HomeFragment">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <androidx.cardview.widget.CardView
+                android:id="@+id/SettingCafeViewBottom_details_cv"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent
+"               app:layout_constraintBottom_toBottomOf="parent"
+
+                app:cardElevation="10dp"
+                app:cardUseCompatPadding="true"
+                app:cardCornerRadius="10dp"
+                >
+
+
+                <EditText
+                    android:id="@+id/SettingCafeViewBottom_name_et"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:layout_marginStart="80dp"
+                    android:ems="10"
+                    android:hint="카페지점이름"
+                    android:inputType="none">
+
+                </EditText>
+
+                <EditText
+                    android:id="@+id/SettingCafeViewBottom_subname_et"
+                    android:layout_width="232dp"
+                    android:layout_height="30dp"
+
+                    android:layout_marginStart="80dp"
+                    android:layout_marginTop="50dp"
+                    android:ems="10"
+                    android:textSize="8dp"
+                    android:hint="카페 한줄 설명"
+                    android:inputType="none">
+
+                </EditText>
+
+                <ImageView
+                    android:id="@+id/SettingCafeViewBottom_locationIcon_iv"
+                    android:layout_width="25dp"
+                    android:layout_height="20dp"
+                    android:src="@drawable/dama_logo_skyblue"
+                    android:layout_marginStart="50dp"
+                    android:layout_marginTop="90dp"/>
+
+                <TextView
+                    android:id="@+id/SettingCafeViewBottom_locationTitle_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:layout_marginStart="100dp"
+                    android:layout_marginTop="75dp"
+                    android:text="Location"
+                    android:textColor="#7C7575"
+                    android:textSize="8dp"
+                    android:textStyle="normal"
+
+                    />
+
+
+                <EditText
+                    android:id="@+id/SettingCafeViewBottom_location_ev"
+                    android:layout_width="200dp"
+                    android:layout_height="40dp"
+
+                    android:textSize="12dp"
+                    android:ems="10"
+                    android:layout_marginStart="100dp"
+                    android:layout_marginTop="80dp"
+                    android:inputType="textMultiLine"
+                    android:hint="카페위치" >
+
+                </EditText>
+
+
+
+
+
+                <View
+                    android:layout_width="360dp"
+                    android:layout_height="1px"
+                    android:layout_marginTop="130dp"
+                    android:layout_marginStart="15dp"
+                    android:background="#BEBEBF" />
+
+                <ImageView
+                    android:id="@+id/SettingCafeViewBottom_phoneIcon_iv"
+                    android:layout_width="25dp"
+                    android:layout_height="20dp"
+                    android:src="@drawable/dama_logo_skyblue"
+                    android:layout_marginStart="50dp"
+                    android:layout_marginTop="150dp"/>
+
+                <TextView
+                    android:id="@+id/SettingCafeViewBottom_phoneTitle_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:layout_marginStart="100dp"
+                    android:layout_marginTop="135dp"
+                    android:text="Telephone"
+                    android:textColor="#7C7575"
+                    android:textSize="8dp"
+                    android:textStyle="normal"
+
+                    />
+
+                <EditText
+                    android:id="@+id/SettingCafeViewBottom_phone_ev"
+                    android:layout_width="200dp"
+                    android:layout_height="40dp"
+
+                    android:textSize="12dp"
+                    android:ems="10"
+                    android:layout_marginStart="100dp"
+                    android:layout_marginTop="140dp"
+                    android:inputType="phone"
+                    android:hint="전화번호" >
+
+                </EditText>
+
+                <View
+                    android:layout_width="360dp"
+                    android:layout_height="1px"
+                    android:layout_marginTop="185dp"
+                    android:layout_marginStart="15dp"
+                    android:background="#BEBEBF" />
+
+
+                <ImageView
+                    android:id="@+id/SettingCafeViewBottom_timeIcon_iv"
+                    android:layout_width="25dp"
+                    android:layout_height="20dp"
+                    android:src="@drawable/dama_logo_skyblue"
+                    android:layout_marginStart="50dp"
+                    android:layout_marginTop="210dp"/>
+
+                <TextView
+                    android:id="@+id/SettingCafeViewBottom_timeTitle_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:layout_marginStart="100dp"
+                    android:layout_marginTop="195dp"
+                    android:text="Time"
+                    android:textColor="#7C7575"
+                    android:textSize="8dp"
+                    android:textStyle="normal"
+
+                    />
+
+                <EditText
+                    android:id="@+id/SettingCafeViewBottom_time_ev"
+                    android:layout_width="200dp"
+                    android:layout_height="40dp"
+
+                    android:textSize="12dp"
+                    android:ems="10"
+                    android:layout_marginStart="100dp"
+                    android:layout_marginTop="200dp"
+                    android:inputType="none"
+                    android:hint="운영시간" >
+
+                </EditText>
+
+                <View
+                    android:layout_width="360dp"
+                    android:layout_height="1px"
+                    android:layout_marginTop="245dp"
+                    android:layout_marginStart="15dp"
+                    android:background="#BEBEBF" />
+
+
+                <ImageView
+                    android:id="@+id/SettingCafeViewBottom_facilityIcon_iv"
+                    android:layout_width="25dp"
+                    android:layout_height="20dp"
+                    android:src="@drawable/dama_logo_skyblue"
+                    android:layout_marginStart="50dp"
+                    android:layout_marginTop="270dp"/>
+
+                <TextView
+                    android:id="@+id/SettingCafeViewBottom_facilityTitle_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:layout_marginStart="100dp"
+                    android:layout_marginTop="255dp"
+                    android:text="Facility"
+                    android:textColor="#7C7575"
+                    android:textSize="8dp"
+                    android:textStyle="normal"
+
+                    />
+
+                <EditText
+                    android:id="@+id/SettingCafeViewBottom_facility_ev"
+                    android:layout_width="200dp"
+                    android:layout_height="40dp"
+
+                    android:textSize="12dp"
+                    android:ems="10"
+                    android:layout_marginStart="100dp"
+                    android:layout_marginTop="260dp"
+                    android:inputType="none"
+                    android:hint="포장여부,재난지원금 등 기타내용" >
+
+                </EditText>
+
+                <View
+                    android:layout_width="360dp"
+                    android:layout_height="1px"
+                    android:layout_marginTop="305dp"
+                    android:layout_marginStart="15dp"
+                    android:background="#BEBEBF" />
+
+                <ImageView
+                    android:id="@+id/SettingCafeViewBottom_rentalIcon_iv"
+                    android:layout_width="25dp"
+                    android:layout_height="20dp"
+                    android:src="@drawable/dama_logo_skyblue"
+                    android:layout_marginStart="50dp"
+                    android:layout_marginTop="330dp"/>
+
+                <TextView
+                    android:id="@+id/SettingCafeViewBottom_rentalTitle_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:layout_marginStart="100dp"
+                    android:layout_marginTop="315dp"
+                    android:text="tumbler"
+                    android:textColor="#7C7575"
+                    android:textSize="8dp"
+                    android:textStyle="normal"
+
+                    />
+
+                <EditText
+                    android:id="@+id/SettingCafeViewBottom_rentaltumbler_ev"
+                    android:layout_width="200dp"
+                    android:layout_height="40dp"
+
+                    android:textSize="12dp"
+                    android:ems="10"
+                    android:layout_marginStart="100dp"
+                    android:layout_marginTop="320dp"
+                    android:inputType="none"
+                    android:hint="매장내 가용텀블러 텀블러 개수" >
+
+                </EditText>
+
+
+
+
+
+                <Button
+                    android:id="@+id/SettingCafeViewBottom_button_btn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+
+                    android:background="@drawable/login_join_btn"
+                    android:layout_marginStart="140dp"
+                    android:layout_marginTop="380dp"
+                    android:text="저장하기"
+                    android:textStyle="bold"/>
+
+
+
+
+
+
+
+
+
+            </androidx.cardview.widget.CardView>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -22,6 +22,11 @@ class UserMainActivity : AppCompatActivity() {
             startActivity(Intent(this, UserMenuActivity::class.java))
         }
 
+        //카페 정보
+        binding.UserMainViewUsingCV.setOnClickListener {
+            startActivity(Intent(this,SettingCafeTopActivity::class.java))
+        }
+
         // cafeadpater와 연결
         val cafeAdapter = UserCafeAdapterClass(this)
         binding.UserMainViewViewpagerVp.adapter=cafeAdapter

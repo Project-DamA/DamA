@@ -12,7 +12,7 @@
         android:theme="@style/Theme.AppCompat.Light.NoActionBar"
         >
         <activity
-            android:name="com.dama.DamA.LoginActivity"
+            android:name="com.dama.DamA.UserLoginActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -22,18 +22,21 @@
             </intent-filter>
         </activity>
         <activity
+            android:name="com.dama.DamA.OwnerLoginActivity"
+            android:exported="false" />
+        <activity
             android:name="com.dama.DamA.UserJoinActivity"
             android:exported="false" />
         <activity
             android:name="com.dama.DamA.OwnerJoinActivity"
             android:exported="false" />
         <activity
-            android:name="com.dama.DamA.DetailCafeActivity"
+            android:name="com.dama.DamA.DetailCafeTopActivity"
             android:exported="false"
             android:label="@string/title_activity_test"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
         <activity
-            android:name="com.dama.DamA.SettingCafeActivity"
+            android:name="com.dama.DamA.SettingCafeTopActivity"
             android:exported="false"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
         <activity

@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:showIn="@layout/activity_setting_cafe">
+    tools:showIn="@layout/activity_detail_cafe_top">
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
@@ -20,7 +21,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
             <androidx.cardview.widget.CardView
-                android:id="@+id/DetailCafeView_details_cv"
+                android:id="@+id/DetailCafeViewBottom_details_cv"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
 
@@ -36,7 +37,7 @@
 
 
                 <TextView
-                    android:id="@+id/DetailCafeView_name_tv"
+                    android:id="@+id/DetailCafeViewBottom_name_tv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
 
@@ -54,7 +55,7 @@
 
 
                 <TextView
-                    android:id="@+id/DetailCafeView_nameSub_tv"
+                    android:id="@+id/DetailCafeViewBottom_nameSub_tv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center_horizontal"
@@ -70,7 +71,7 @@
                     />
 
                 <ImageView
-                    android:id="@+id/DetailCafeView_locationIcon_iv"
+                    android:id="@+id/DetailCafeViewBottom_locationIcon_iv"
                     android:layout_width="25dp"
                     android:layout_height="20dp"
                     android:src="@drawable/dama_logo_skyblue"
@@ -78,7 +79,7 @@
                     android:layout_marginTop="90dp"/>
 
                 <TextView
-                    android:id="@+id/DetailCafeView_locationTitle_tv"
+                    android:id="@+id/RegistrationCafeViewBottom_locationTitle_tv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
 
@@ -93,7 +94,7 @@
 
 
                 <TextView
-                    android:id="@+id/DetailCafeView_location_tv"
+                    android:id="@+id/DetailCafeViewBottom_location_tv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
 
@@ -107,7 +108,7 @@
                     />
 
                 <TextView
-                    android:id="@+id/DetailCafeView_landNumber_tv"
+                    android:id="@+id/DetailCafeViewBottom_landNumber_tv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
 
@@ -129,7 +130,7 @@
                     android:background="#BEBEBF" />
 
                 <ImageView
-                    android:id="@+id/DetailCafeView_phoneIcon_iv"
+                    android:id="@+id/DetailCafeViewBottom_phoneIcon_iv"
                     android:layout_width="25dp"
                     android:layout_height="20dp"
                     android:src="@drawable/dama_logo_skyblue"
@@ -137,7 +138,7 @@
                     android:layout_marginTop="150dp"/>
 
                 <TextView
-                    android:id="@+id/DetailCafeView_phoneTitle_tv"
+                    android:id="@+id/DetailCafeViewBottom_phoneTitle_tv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
 
@@ -151,7 +152,7 @@
                     />
 
                 <TextView
-                    android:id="@+id/DetailCafeView_phone_tv"
+                    android:id="@+id/DetailCafeViewBottom_phone_tv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="100dp"
@@ -170,7 +171,7 @@
 
 
                 <ImageView
-                    android:id="@+id/DetailCafeView_timeIcon_iv"
+                    android:id="@+id/DetailCafeViewBottom_timeIcon_iv"
                     android:layout_width="25dp"
                     android:layout_height="20dp"
                     android:src="@drawable/dama_logo_skyblue"
@@ -178,7 +179,7 @@
                     android:layout_marginTop="210dp"/>
 
                 <TextView
-                    android:id="@+id/DetailCafeView_timeTitle_tv"
+                    android:id="@+id/DetailCafeViewBottom_timeTitle_tv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
 
@@ -192,7 +193,7 @@
                     />
 
                 <TextView
-                    android:id="@+id/DetailCafeView_time_tv"
+                    android:id="@+id/DetailCafeViewBottom_time_tv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="210dp"
@@ -211,7 +212,7 @@
 
 
                 <ImageView
-                    android:id="@+id/DetailCafeView_facilityIcon_iv"
+                    android:id="@+id/DetailCafeViewBottom_facilityIcon_iv"
                     android:layout_width="25dp"
                     android:layout_height="20dp"
                     android:src="@drawable/dama_logo_skyblue"
@@ -219,7 +220,7 @@
                     android:layout_marginTop="270dp"/>
 
                 <TextView
-                    android:id="@+id/DetailCafeView_facilityTitle_tv"
+                    android:id="@+id/DetailCafeViewBottom_facilityTitle_tv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
 
@@ -233,7 +234,7 @@
                     />
 
                 <TextView
-                    android:id="@+id/search_cafe_facility_tv"
+                    android:id="@+id/DetailCafeViewBottom_facility_tv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="270dp"
@@ -253,7 +254,7 @@
                     android:background="#BEBEBF" />
 
                 <ImageView
-                    android:id="@+id/DetailCafeView_rentalIcon_iv"
+                    android:id="@+id/DetailCafeViewBottom_rentalIcon_iv"
                     android:layout_width="25dp"
                     android:layout_height="20dp"
                     android:src="@drawable/dama_logo_skyblue"
@@ -261,7 +262,7 @@
                     android:layout_marginTop="330dp"/>
 
                 <TextView
-                    android:id="@+id/DetailCafeView_rentalTitle_tv"
+                    android:id="@+id/DetailCafeViewBottom_rentalTitle_tv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
 
@@ -275,7 +276,7 @@
                     />
 
                 <TextView
-                    android:id="@+id/DetailCafeView_rental_tv"
+                    android:id="@+id/DetailCafeViewBottom_rental_tv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="330dp"
@@ -296,7 +297,7 @@
 
 
                 <ImageView
-                    android:id="@+id/DetailCafeView_temp1Icon_iv"
+                    android:id="@+id/DetailCafeViewBottom_temp1Icon_iv"
                     android:layout_width="25dp"
                     android:layout_height="17dp"
                     android:layout_marginStart="50dp"
@@ -304,7 +305,7 @@
                     android:src="@drawable/dama_logo_skyblue" />
 
                 <TextView
-                    android:id="@+id/DetailCafeView_temp1Title_tv"
+                    android:id="@+id/DetailCafeViewBottom_temp1Title_tv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
 
@@ -318,7 +319,7 @@
                     />
 
                 <TextView
-                    android:id="@+id/DetailCafeView_temp1_tv"
+                    android:id="@+id/DetailCafeViewBottom_temp1_tv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="390dp"
@@ -338,7 +339,7 @@
                     android:background="#BEBEBF" />
 
                 <ImageView
-                    android:id="@+id/DetailCafeView_temp2Icon_iv"
+                    android:id="@+id/DetailCafeViewBottom_temp2Icon_iv"
                     android:layout_width="25dp"
                     android:layout_height="20dp"
                     android:src="@drawable/dama_logo_skyblue"
@@ -346,7 +347,7 @@
                     android:layout_marginTop="450dp"/>
 
                 <TextView
-                    android:id="@+id/DetailCafeView_temp2Title_tv"
+                    android:id="@+id/DetailCafeViewBottom_temp2Title_tv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
 
@@ -360,7 +361,7 @@
                     />
 
                 <TextView
-                    android:id="@+id/DetailCafeView_temp2_tv"
+                    android:id="@+id/DetailCafeViewBottom_temp2_tv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="450dp"
@@ -380,7 +381,7 @@
                     android:background="#BEBEBF" />
 
                 <ImageView
-                    android:id="@+id/DetailCafeView_temp3Icon_iv"
+                    android:id="@+id/DetailCafeViewBottom_temp3Icon_iv"
                     android:layout_width="25dp"
                     android:layout_height="20dp"
                     android:src="@drawable/dama_logo_skyblue"
@@ -388,7 +389,7 @@
                     android:layout_marginTop="510dp"/>
 
                 <TextView
-                    android:id="@+id/DetailCafeView_temp3Title_tv"
+                    android:id="@+id/DetailCafeViewBottom_temp3Title_tv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
 
@@ -402,7 +403,7 @@
                     />
 
                 <TextView
-                    android:id="@+id/DetailCafeView_temp3_tv"
+                    android:id="@+id/DetailCafeViewBottom_temp3_tv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="510dp"
@@ -422,7 +423,7 @@
                     android:background="#BEBEBF" />
 
                 <ImageView
-                    android:id="@+id/DetailCafeView_temp4Icon_iv"
+                    android:id="@+id/DetailCafeViewBottom_temp4Icon_iv"
                     android:layout_width="25dp"
                     android:layout_height="20dp"
                     android:src="@drawable/dama_logo_skyblue"
@@ -430,7 +431,7 @@
                     android:layout_marginTop="570dp"/>
 
                 <TextView
-                    android:id="@+id/DetailCafeView_temp4Title_tv"
+                    android:id="@+id/DetailCafeViewBottom_temp4Title_tv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
 
@@ -444,7 +445,7 @@
                     />
 
                 <TextView
-                    android:id="@+id/DetailCafeView_temp4_tv"
+                    android:id="@+id/DetailCafeViewBottom_temp4_tv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="570dp"

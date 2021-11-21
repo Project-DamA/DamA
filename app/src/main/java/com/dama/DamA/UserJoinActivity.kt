@@ -15,18 +15,11 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 class UserJoinActivity : AppCompatActivity() {
     lateinit var binding: ActivityUserJoinBinding
-    var userjoin:Join? = null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding= ActivityUserJoinBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
-        //retrofit 서버 연결
-        var retrofit = Retrofit.Builder()
-            .baseUrl("http://10.0.2.2:5000/")
-            .addConverterFactory(GsonConverterFactory.create())
-            .build()
-        var joinService: JoinService = retrofit.create(JoinService::class.java)
 
 
         //유저 화면 뷰 to do delete
@@ -35,26 +28,7 @@ class UserJoinActivity : AppCompatActivity() {
             var password = binding.UserJoinViewPasswordTextBoxEditTxt.text.toString()
             var username = binding.UserJoinViewNameTextBoxEditTxt.text.toString()
             var age = binding.UserJoinViewAgeTextBoxEditTxt.text.toString()
-            joinService.requestLogin(email, password, username, age).enqueue(object: Callback<Join> {
-                override fun onFailure(call: Call<Join>, t: Throwable) {
-                    Log.e("LOGIN", t.message.toString())
-                    var dialog = AlertDialog.Builder(this@UserJoinActivity)
-                    dialog.setTitle("에러")
-                    dialog.setMessage("호출실패했습니다.")
-                    dialog.show()
-
-                }
-                override fun onResponse(call: Call<Join>, response: Response<Join>) {
-                    userjoin = response.body()
-                    Log.d("LOGIN","msg : "+userjoin?.msg)
-                    Log.d("LOGIN","code : "+userjoin?.code)
-                    var dialog = AlertDialog.Builder(this@UserJoinActivity)
-                    dialog.setTitle(userjoin?.msg)
-                    dialog.setMessage(userjoin?.code)
-                    dialog.show()
-                }
-            })
-//            startActivity(Intent(this,UserMainActivity::class.java))
+           startActivity(Intent(this,UserMainActivity::class.java))
         }
 
 
