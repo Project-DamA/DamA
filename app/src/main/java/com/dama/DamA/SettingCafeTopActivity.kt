@@ -26,7 +26,7 @@ class SettingCafeTopActivity : AppCompatActivity() {
             setDisplayShowHomeEnabled(true)
         }
 
-        viewPager2 = findViewById(R.id.DetailCafeViewTop_viewPager_vp)
+        viewPager2 = findViewById(R.id.SettingCafeViewTop_viewPager_vp)
 
         viewPager2.adapter = ViewPagerAdapterClass(this)
 

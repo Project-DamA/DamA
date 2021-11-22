@@ -6,9 +6,6 @@ import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AlertDialog
 import com.dama.DamA.databinding.ActivityOwnerLoginBinding
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
 
 
 class OwnerLoginActivity : AppCompatActivity() {
