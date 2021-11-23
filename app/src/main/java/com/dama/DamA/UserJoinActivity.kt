@@ -44,9 +44,10 @@ class UserJoinActivity : AppCompatActivity() {
             var email = binding.UserJoinViewEmailTextBoxEditTxt.text.toString()
             var password = binding.UserJoinViewPasswordTextBoxEditTxt.text.toString()
             var passwordcheck = binding.UserJoinViewPasswordCheckTextBoxEditTxt.text.toString()
+            var username=binding.UserJoinViewNameTextBoxEditTxt.text.toString()
             var age = binding.UserJoinViewAgeTextBoxEditTxt.text.toString()
-            var phone = binding.UserJoinViewPhoneTextBoxEditTxt.text.toString()
-
+            var phoneNumber = binding.UserJoinViewPhoneTextBoxEditTxt.text.toString()
+            var signUpCheck = false
             if (password != passwordcheck) {
                 val builder = AlertDialog.Builder(this)
 
@@ -75,6 +76,7 @@ class UserJoinActivity : AppCompatActivity() {
                             Toast.LENGTH_SHORT
                         ).show()
                         finish() // 가입창 종료
+                        FirebaseDB().writeNewUser(Firebase.auth.currentUser?.uid.toString(),username,email,phoneNumber)
                     } else {
                         Toast.makeText(
                             this, "계정 생성 실패",
@@ -82,6 +84,10 @@ class UserJoinActivity : AppCompatActivity() {
                         ).show()
                     }
                 }
+
+
+
+//
         }//비밀번호 확인 이랑 안맞을 경우, 비밀번호 6자리이상
 
     }
