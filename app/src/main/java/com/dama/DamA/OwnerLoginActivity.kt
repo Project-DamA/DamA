@@ -4,12 +4,18 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import com.dama.DamA.databinding.ActivityOwnerLoginBinding
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
 
 
 class OwnerLoginActivity : AppCompatActivity() {
     lateinit var binding: ActivityOwnerLoginBinding
+
+    private lateinit var auth: FirebaseAuth
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -24,17 +30,42 @@ class OwnerLoginActivity : AppCompatActivity() {
 
 
         //회원가입 시
-            binding.OwnerLoginViewJoinTv.setOnClickListener {
+        binding.OwnerLoginViewJoinTv.setOnClickListener {
             startActivity(Intent(this, UserJoinActivity::class.java))
         }
 
-        //로그인 시
+        /*//로그인 시
         binding.OwnerLoginViewLoginBtn.setOnClickListener {
             var email = binding.OwnerLoginViewEmailTextBoxEditTxt.text.toString()
             var password = binding.OwnerLoginViewPasswordTextBoxEditTxt.text.toString()
 
             startActivity(Intent(this@OwnerLoginActivity, OwnerMainActivity::class.java))
 
+        }*/
+
+
+        auth = Firebase.auth
+        //로그인 시
+        binding.OwnerLoginViewLoginBtn.setOnClickListener {
+            var email = binding.OwnerLoginViewEmailTextBoxEditTxt.text.toString()
+            var password = binding.OwnerLoginViewPasswordTextBoxEditTxt.text.toString()
+            auth.signInWithEmailAndPassword(email, password)
+                .addOnCompleteListener(this) { task ->
+                    if (task.isSuccessful) {
+                        // Sign in success, update UI with the signed-in user's information
+                        Log.d("Login", "signInWithEmail:success")
+                        val user = auth.currentUser
+                        print("Login")
+                        Toast.makeText(baseContext, "Authentication Success.",
+                            Toast.LENGTH_SHORT).show()
+                        startActivity(Intent(this,OwnerMainActivity::class.java))
+                    } else {
+                        // If sign in fails, display a message to the user.
+                        Log.w("Login", "signInWithEmail:failure", task.exception)
+                        Toast.makeText(baseContext, "Authentication failed.",
+                            Toast.LENGTH_SHORT).show()
+                    }
+                }
         }
 
     }

@@ -30,7 +30,7 @@ class UserLoginActivity : AppCompatActivity() {
         }
 
         //회원가입 시
-            binding.UserLoginViewJoinTv.setOnClickListener {
+        binding.UserLoginViewJoinTv.setOnClickListener {
             startActivity(Intent(this, UserJoinActivity::class.java))
         }
         auth = Firebase.auth
@@ -45,6 +45,9 @@ class UserLoginActivity : AppCompatActivity() {
                         Log.d("Login", "signInWithEmail:success")
                         val user = auth.currentUser
                         print("Login")
+                        Toast.makeText(baseContext, "Authentication Success.",
+                            Toast.LENGTH_SHORT).show()
+                        startActivity(Intent(this,UserMainActivity::class.java))
                     } else {
                         // If sign in fails, display a message to the user.
                         Log.w("Login", "signInWithEmail:failure", task.exception)
@@ -52,7 +55,7 @@ class UserLoginActivity : AppCompatActivity() {
                             Toast.LENGTH_SHORT).show()
                     }
                 }
-        }
+        } //오너계정을 유저 로그인에 하니 로그인 됨 반대도 됨
 
     }
 }

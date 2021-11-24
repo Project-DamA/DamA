@@ -77,6 +77,7 @@ class UserJoinActivity : AppCompatActivity() {
                         ).show()
                         finish() // 가입창 종료
                         FirebaseDB().writeNewUser(Firebase.auth.currentUser?.uid.toString(),username,email,phoneNumber)
+                        startActivity(Intent(this,UserMainActivity::class.java))
                     } else {
                         Toast.makeText(
                             this, "계정 생성 실패",

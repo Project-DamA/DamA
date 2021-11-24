@@ -24,7 +24,7 @@ class SettingCafeBottomActivity : AppCompatActivity() {
             var cafe_runtime = binding.SettingCafeViewBottomTimeEv.text
             var cafe_call = binding.SettingCafeViewBottomPhoneEv.text
             var cafe_facility = binding.SettingCafeViewBottomFacilityEv.text
-
+            var cafe_tumbler = binding.SettingCafeViewBottomRentaltumblerEv.text
 
             }
 
