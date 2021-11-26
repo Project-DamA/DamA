@@ -31,12 +31,11 @@
             android:name="com.dama.DamA.OwnerJoinActivity"
             android:exported="false" />
         <activity
-            android:name="com.dama.DamA.DetailCafeTopActivity"
+            android:name="com.dama.DamA.DetailCafeActivity"
             android:exported="false"
-            android:label="@string/title_activity_test"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
         <activity
-            android:name="com.dama.DamA.SettingCafeTopActivity"
+            android:name="com.dama.DamA.SettingCafeActivity"
             android:exported="false"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
         <activity

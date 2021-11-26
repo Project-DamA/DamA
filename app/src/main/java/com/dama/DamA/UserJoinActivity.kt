@@ -47,7 +47,6 @@ class UserJoinActivity : AppCompatActivity() {
             var username=binding.UserJoinViewNameTextBoxEditTxt.text.toString()
             var age = binding.UserJoinViewAgeTextBoxEditTxt.text.toString()
             var phoneNumber = binding.UserJoinViewPhoneTextBoxEditTxt.text.toString()
-            var signUpCheck = false
             if (password != passwordcheck) {
                 val builder = AlertDialog.Builder(this)
 

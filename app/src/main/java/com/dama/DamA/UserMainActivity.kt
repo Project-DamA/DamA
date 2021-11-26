@@ -24,7 +24,7 @@ class UserMainActivity : AppCompatActivity() {
 
         //카페 정보
         binding.UserMainViewUsingCV.setOnClickListener {
-            startActivity(Intent(this,DetailCafeTopActivity::class.java))
+            startActivity(Intent(this,DetailCafeActivity::class.java))
         }
 
         // cafeadpater와 연결

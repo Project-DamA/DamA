@@ -4,6 +4,7 @@ import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.ktx.database
+import com.google.firebase.database.ktx.getValue
 import com.google.firebase.ktx.Firebase
 
 class FirebaseDB {
@@ -23,29 +24,23 @@ class FirebaseDB {
         database.child("owner").child(ownerId).setValue(owner)
     }
 
-    fun writeCafeSetting(cafename: String, cafesubname: String, location: String, phone:String, time:String, facility:String, rentaltumbler:Int) {
+    fun writeCafeSetting(ownerUid:String,cafeName: String, cafeSubName: String, location: String, call:String, runtime:String, facility:String, rentalTumbler:String) {
         database = Firebase.database.reference
-        val cafe = Cafe(cafename, cafesubname,location,phone,time,facility,rentaltumbler)
+        val cafe = Cafe(cafeName, cafeSubName,location,call,runtime,facility,rentalTumbler)
 
-        database.child("cafe").child(cafename).setValue(cafe)
+        database.child("cafe").child(ownerUid).setValue(cafe)
     }
 
-    /*private fun writeCafeSetting(cafename: String, cafesubname: String, location: String, phone: String, time: String, facility: String, rentaltumbler: Int) {
-        // Create new post at /user-posts/$userid/$postid and at
-        // /posts/$postid simultaneously
-        val key = database.child("cafe").push().key
-        if (key == null) {
-            Log.w(AppCompatActivity.TAG, "Couldn't get push key for posts")
-            return
+    fun readCafeSetting(ownerUid: String):Cafe? {
+        database = Firebase.database.reference
+        var cafeData:Cafe?=null
+        database.child("cafe").child(ownerUid).get().addOnSuccessListener {
+            Log.i("firebase", "Got value ${it.value}")
+            cafeData=it.getValue<Cafe>()
+        }.addOnFailureListener{
+            Log.e("firebase", "Error getting data", it)
         }
-        val cafe = Cafe(cafename, cafesubname, location, phone, time, facility,rentaltumbler)
-        val postValues = cafe.cafename()
-        val childUpdates = hashMapOf<String, Any>(
-            "/cafename/$key" to postValues,
-            "/cafe-name/$cafename/$key" to postValues
-        )
-        database.updateChildren(childUpdates)
+        return cafeData
     }
-*/
 
 }
