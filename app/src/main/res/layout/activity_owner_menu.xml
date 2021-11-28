@@ -5,7 +5,7 @@
     android:layout_height="match_parent">
 
     <ImageButton
-        android:id="@+id/OwnerMenuView_previousmove_ib"
+        android:id="@+id/OwnerMenuView_close_ib"
         android:layout_width="30dp"
         android:layout_height="30dp"
         android:src="@drawable/previous_move"
@@ -17,7 +17,7 @@
         android:layout_marginEnd="20dp"/>
 
     <LinearLayout
-        android:id="@+id/OwnerMenuView_myprofile_lo"
+        android:id="@+id/OwnerMenuView_profile_lo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -32,7 +32,7 @@
             android:layout_height="wrap_content">
 
             <ImageButton
-                android:id="@+id/OwnerMenuView_myprofile_ib"
+                android:id="@+id/OwnerMenuView_profile_ib"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
                 android:layout_marginStart="20dp"
@@ -44,7 +44,7 @@
                 app:layout_constraintTop_toTopOf="parent"/>
 
             <TextView
-                android:id="@+id/OwnerMenuView_myprofile_tv"
+                android:id="@+id/OwnerMenuView_profile_tv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="내 프로필"
@@ -52,29 +52,29 @@
                 android:textColor="@color/black"
                 android:textStyle="bold"
                 android:layout_marginStart="10dp"
-                app:layout_constraintStart_toEndOf="@id/OwnerMenuView_myprofile_ib"
-                app:layout_constraintTop_toTopOf="@id/OwnerMenuView_myprofile_ib"
-                app:layout_constraintBottom_toBottomOf="@id/OwnerMenuView_myprofile_ib" />
+                app:layout_constraintStart_toEndOf="@id/OwnerMenuView_profile_ib"
+                app:layout_constraintTop_toTopOf="@id/OwnerMenuView_profile_ib"
+                app:layout_constraintBottom_toBottomOf="@id/OwnerMenuView_profile_ib" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/OwnerMenuView_whatisdama_lo"
+        android:id="@+id/OwnerMenuView_whatIs_lo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:paddingTop="10dp"
         android:paddingBottom="10dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/OwnerMenuView_myprofile_lo">
+        app:layout_constraintTop_toBottomOf="@id/OwnerMenuView_profile_lo">
 
         <TextView
-            android:id="@+id/OwnerMenuView_whatisdama_tv"
+            android:id="@+id/OwnerMenuView_whatIs_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="'담or'가 무엇인가요?"
+            android:text="담아가 무엇인가요?"
             android:textColor="@color/black"
             android:textStyle="bold"
             android:textSize="20sp"
@@ -90,7 +90,7 @@
         android:paddingTop="11dp"
         android:paddingBottom="11dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/OwnerMenuView_whatisdama_lo">
+        app:layout_constraintTop_toBottomOf="@id/OwnerMenuView_whatIs_lo">
 
         <TextView
             android:id="@+id/OwnerMenuView_location_tv"
@@ -188,7 +188,7 @@
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/OwnerMenuView_version_lo"
+        android:id="@+id/OwnerMenuView_currentVersion_lo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -198,7 +198,7 @@
         app:layout_constraintTop_toBottomOf="@id/OwnerMenuView_clause_lo">
 
         <TextView
-            android:id="@+id/OwnerMenuView_version_tv"
+            android:id="@+id/OwnerMenuView_CurrentVersion_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="현재 버전"
@@ -215,7 +215,7 @@
         android:paddingTop="11dp"
         android:paddingBottom="11dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/OwnerMenuView_version_lo">
+        app:layout_constraintTop_toBottomOf="@id/OwnerMenuView_currentVersion_lo">
 
         <TextView
             android:id="@+id/OwnerMenuView_withrawal_tv"

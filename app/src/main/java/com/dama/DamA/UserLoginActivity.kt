@@ -57,5 +57,11 @@ class UserLoginActivity : AppCompatActivity() {
                 }
         } //오너계정을 유저 로그인에 하니 로그인 됨 반대도 됨
 
+
+        binding.UserLoginViewSerachPasswordTv.setOnClickListener{
+
+        }
     }
+
+
 }

@@ -5,7 +5,7 @@
     android:layout_height="match_parent">
 
     <ImageButton
-        android:id="@+id/menuPreviousMove_IB"
+        android:id="@+id/UserMenuView_close_ib"
         android:layout_width="30dp"
         android:layout_height="30dp"
         android:src="@drawable/previous_move"
@@ -17,7 +17,7 @@
         android:layout_marginEnd="20dp"/>
 
     <LinearLayout
-        android:id="@+id/menuMyInformation_LO"
+        android:id="@+id/UserMenuView_info_ll"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -32,7 +32,7 @@
             android:layout_height="wrap_content">
 
             <ImageButton
-                android:id="@+id/menuMyProfile_IB"
+                android:id="@+id/UserMenuView_profile_ib"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
                 android:layout_marginStart="20dp"
@@ -51,28 +51,28 @@
                 android:textColor="@color/black"
                 android:textStyle="bold"
                 android:layout_marginStart="10dp"
-                app:layout_constraintStart_toEndOf="@id/menuMyProfile_IB"
-                app:layout_constraintTop_toTopOf="@id/menuMyProfile_IB"
-                app:layout_constraintBottom_toBottomOf="@id/menuMyProfile_IB" />
+                app:layout_constraintStart_toEndOf="@id/UserMenuView_profile_ib"
+                app:layout_constraintTop_toTopOf="@id/UserMenuView_profile_ib"
+                app:layout_constraintBottom_toBottomOf="@id/UserMenuView_profile_ib" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/menu_whatIsDAMA_LO"
+        android:id="@+id/UserMenuView_whatIs_lo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:paddingTop="10dp"
         android:paddingBottom="10dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/menuMyInformation_LO">
+        app:layout_constraintTop_toBottomOf="@id/UserMenuView_info_ll">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="'담or'가 무엇인가요?"
+            android:text="담아가 무엇인가요?"
             android:textColor="@color/black"
             android:textStyle="bold"
             android:textSize="20sp"
@@ -81,14 +81,14 @@
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/menu_notice_LO"
+        android:id="@+id/UserMenuView_notice_lo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:paddingTop="11dp"
         android:paddingBottom="11dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/menu_whatIsDAMA_LO">
+        app:layout_constraintTop_toBottomOf="@id/UserMenuView_whatIs_lo">
 
         <TextView
             android:layout_width="wrap_content"
@@ -101,14 +101,14 @@
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/menu_event_LO"
+        android:id="@+id/UserMenuView_event_lo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:paddingTop="11dp"
         android:paddingBottom="11dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/menu_notice_LO">
+        app:layout_constraintTop_toBottomOf="@id/UserMenuView_notice_lo">
 
         <TextView
             android:layout_width="wrap_content"
@@ -121,14 +121,14 @@
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/menu_helpCenter_LO"
+        android:id="@+id/UserMenuView_helpCenter_lo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:paddingTop="11dp"
         android:paddingBottom="11dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/menu_event_LO">
+        app:layout_constraintTop_toBottomOf="@id/UserMenuView_event_lo">
 
         <TextView
             android:layout_width="wrap_content"
@@ -141,14 +141,14 @@
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/menu_setting_LO"
+        android:id="@+id/UserMenuView_setting_lo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:paddingTop="11dp"
         android:paddingBottom="11dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/menu_helpCenter_LO">
+        app:layout_constraintTop_toBottomOf="@id/UserMenuView_helpCenter_lo">
 
         <TextView
             android:layout_width="wrap_content"
@@ -161,14 +161,14 @@
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/menu_clause_LO"
+        android:id="@+id/UserMenuView_clause_lo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:paddingTop="11dp"
         android:paddingBottom="11dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/menu_setting_LO">
+        app:layout_constraintTop_toBottomOf="@id/UserMenuView_setting_lo">
 
         <TextView
             android:layout_width="wrap_content"
@@ -181,14 +181,14 @@
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/menu_presentVersion_LO"
+        android:id="@+id/UserMenuView_currentVersion_lo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:paddingTop="11dp"
         android:paddingBottom="11dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/menu_clause_LO">
+        app:layout_constraintTop_toBottomOf="@id/UserMenuView_clause_lo">
 
         <TextView
             android:layout_width="wrap_content"
@@ -200,14 +200,14 @@
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/menu_withdrawal_LO"
+        android:id="@+id/UserMenuView_withdrawal_lo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:paddingTop="11dp"
         android:paddingBottom="11dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/menu_presentVersion_LO">
+        app:layout_constraintTop_toBottomOf="@id/UserMenuView_currentVersion_lo">
 
         <TextView
             android:layout_width="wrap_content"
@@ -220,7 +220,7 @@
 
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/menu_logout_CV"
+        android:id="@+id/UserMenuView_logout_cv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintStart_toStartOf="parent"

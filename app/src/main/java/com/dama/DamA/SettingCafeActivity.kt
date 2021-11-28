@@ -48,16 +48,19 @@ class SettingCafeActivity : AppCompatActivity() {
 
         database.child("cafe").child(Firebase.auth.currentUser?.uid.toString()).get().addOnSuccessListener {
             Log.i("firebase", "Got value ${it.value}")
-            setSupportActionBar(binding.SettingCafeViewToolbarTb).apply {
-                title=it.getValue<Cafe>()?.cafeName.toString()
+            if (it.exists()){
+                var cafeData = it.getValue<Cafe>()
+                setSupportActionBar(binding.SettingCafeViewToolbarTb).apply {
+                    title=cafeData?.cafeName.toString()
+                }
+                cafe_name.setText(cafeData?.cafeName.toString())
+                cafe_subname.setText(cafeData?.cafeSubName.toString())
+                cafe_location.setText(cafeData?.location.toString())
+                cafe_call.setText(cafeData?.call.toString())
+                cafe_runtime.setText(cafeData?.runtime.toString())
+                cafe_facility.setText(cafeData?.facility.toString())
+                cafe_tumbler.setText(cafeData?.rentalTumbler.toString())
             }
-            cafe_name.setText(it.getValue<Cafe>()?.cafeName.toString())
-            cafe_subname.setText(it.getValue<Cafe>()?.cafeSubName.toString())
-            cafe_location.setText(it.getValue<Cafe>()?.location.toString())
-            cafe_call.setText(it.getValue<Cafe>()?.call.toString())
-            cafe_runtime.setText(it.getValue<Cafe>()?.runtime.toString())
-            cafe_facility.setText(it.getValue<Cafe>()?.facility.toString())
-            cafe_tumbler.setText(it.getValue<Cafe>()?.rentalTumbler.toString())
         }.addOnFailureListener{
             Log.e("firebase", "Error getting data", it)
         }

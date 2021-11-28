@@ -34,14 +34,6 @@ class OwnerLoginActivity : AppCompatActivity() {
             startActivity(Intent(this, UserJoinActivity::class.java))
         }
 
-        /*//로그인 시
-        binding.OwnerLoginViewLoginBtn.setOnClickListener {
-            var email = binding.OwnerLoginViewEmailTextBoxEditTxt.text.toString()
-            var password = binding.OwnerLoginViewPasswordTextBoxEditTxt.text.toString()
-
-            startActivity(Intent(this@OwnerLoginActivity, OwnerMainActivity::class.java))
-
-        }*/
 
 
         auth = Firebase.auth

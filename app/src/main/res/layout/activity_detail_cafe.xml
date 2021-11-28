@@ -34,20 +34,20 @@
                     android:layout_marginStart="120dp"
                     android:layout_marginTop="30dp"
                     android:gravity="center_horizontal"
-                    android:text="메가커피 양주고읍점"
+                    android:text=""
                     android:textColor="#000000"
                     android:textSize="17sp"
                     android:textStyle="bold"/>
 
 
                 <TextView
-                    android:id="@+id/DetailCafeView_nameSub_tv"
+                    android:id="@+id/DetailCafeView_subName_tv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="110dp"
                     android:layout_marginTop="50dp"
                     android:gravity="center_horizontal"
-                    android:text="사장님이 적어주는 소제목"
+                    android:text=""
                     android:textColor="#4C4B4B"
                     android:textSize="15sp"
                     android:textStyle="bold" />
@@ -79,7 +79,7 @@
 
                     android:layout_marginStart="100dp"
                     android:layout_marginTop="90dp"
-                    android:text="경기 양주시 고읍남로 13(우)11492"
+                    android:text=""
                     android:textColor="#000000"
                     android:textSize="12sp"
                     android:textStyle="bold"
@@ -109,7 +109,7 @@
                     android:background="#BEBEBF" />
 
                 <ImageView
-                    android:id="@+id/DetailCafeView_phoneIcon_iv"
+                    android:id="@+id/DetailCafeView_callIcon_iv"
                     android:layout_width="25dp"
                     android:layout_height="20dp"
                     android:layout_marginStart="50dp"
@@ -117,7 +117,7 @@
                     android:src="@drawable/dama_logo_skyblue" />
 
                 <TextView
-                    android:id="@+id/DetailCafeView_phoneTitle_tv"
+                    android:id="@+id/DetailCafeView_callTitle_tv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
 
@@ -131,12 +131,12 @@
                     />
 
                 <TextView
-                    android:id="@+id/DetailCafeView_phone_tv"
+                    android:id="@+id/DetailCafeView_call_tv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="100dp"
                     android:layout_marginTop="150dp"
-                    android:text="031-828-1009"
+                    android:text=""
                     android:textColor="#0B25B6"
                     android:textSize="12sp"
                     android:textStyle="normal" />
@@ -150,7 +150,7 @@
 
 
                 <ImageView
-                    android:id="@+id/DetailCafeView_timeIcon_iv"
+                    android:id="@+id/DetailCafeView_runtimeIcon_iv"
                     android:layout_width="25dp"
                     android:layout_height="20dp"
                     android:layout_marginStart="50dp"
@@ -158,7 +158,7 @@
                     android:src="@drawable/dama_logo_skyblue" />
 
                 <TextView
-                    android:id="@+id/DetailCafeView_timeTitle_tv"
+                    android:id="@+id/DetailCafeView_runtimeTitle_tv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
 
@@ -172,12 +172,12 @@
                     />
 
                 <TextView
-                    android:id="@+id/DetailCafeView_time_tv"
+                    android:id="@+id/DetailCafeView_runtime_tv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="100dp"
                     android:layout_marginTop="210dp"
-                    android:text="매일 08:30 - 22:00 연중무휴"
+                    android:text=""
                     android:textColor="#000000"
                     android:textSize="12sp"
                     android:textStyle="bold" />
@@ -218,7 +218,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="100dp"
                     android:layout_marginTop="270dp"
-                    android:text="포장,예약,무선 인터넷,지역화폐(카드형),국민 지원금"
+                    android:text=""
                     android:textColor="#000000"
                     android:textSize="12sp"
                     android:textStyle="bold"
@@ -233,7 +233,7 @@
                     android:background="#BEBEBF" />
 
                 <ImageView
-                    android:id="@+id/DetailCafeView_rentalIcon_iv"
+                    android:id="@+id/DetailCafeView_rentalTumblerIcon_iv"
                     android:layout_width="25dp"
                     android:layout_height="20dp"
                     android:layout_marginStart="50dp"
@@ -241,13 +241,13 @@
                     android:src="@drawable/dama_logo_skyblue" />
 
                 <TextView
-                    android:id="@+id/DetailCafeView_rentalTitle_tv"
+                    android:id="@+id/DetailCafeView_rentalTumblerTitle_tv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
 
                     android:layout_marginStart="100dp"
                     android:layout_marginTop="315dp"
-                    android:text="dama"
+                    android:text="Owner's Tumbler Count"
                     android:textColor="#7C7575"
                     android:textSize="11sp"
                     android:textStyle="normal"
@@ -255,12 +255,12 @@
                     />
 
                 <TextView
-                    android:id="@+id/DetailCafeView_rental_tv"
+                    android:id="@+id/DetailCafeView_rentalTumbler_tv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="100dp"
                     android:layout_marginTop="330dp"
-                    android:text="현재 카페 보유 텀블러 10개 이상!"
+                    android:text=""
                     android:textColor="#5A8CEF"
                     android:textSize="16sp"
                     android:textStyle="bold"
@@ -275,166 +275,6 @@
                     android:background="#BEBEBF" />
 
 
-                <ImageView
-                    android:id="@+id/DetailCafeView_temp1Icon_iv"
-                    android:layout_width="25dp"
-                    android:layout_height="17dp"
-                    android:layout_marginStart="50dp"
-                    android:layout_marginTop="390dp"
-                    android:src="@drawable/dama_logo_skyblue" />
-
-                <TextView
-                    android:id="@+id/DetailCafeView_temp1Title_tv"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-
-                    android:layout_marginStart="100dp"
-                    android:layout_marginTop="375dp"
-                    android:text="temporary"
-                    android:textColor="#7C7575"
-                    android:textSize="11sp"
-                    android:textStyle="normal"
-
-                    />
-
-                <TextView
-                    android:id="@+id/DetailCafeView_temp1_tv"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="100dp"
-                    android:layout_marginTop="390dp"
-                    android:text="지금부터 밑에 카드뷰 임시"
-                    android:textColor="#5A8CEF"
-                    android:textSize="16sp"
-                    android:textStyle="bold"
-
-                    />
-
-                <View
-                    android:layout_width="360dp"
-                    android:layout_height="1px"
-                    android:layout_marginStart="15dp"
-                    android:layout_marginTop="425dp"
-                    android:background="#BEBEBF" />
-
-                <ImageView
-                    android:id="@+id/DetailCafeView_temp2Icon_iv"
-                    android:layout_width="25dp"
-                    android:layout_height="20dp"
-                    android:layout_marginStart="50dp"
-                    android:layout_marginTop="450dp"
-                    android:src="@drawable/dama_logo_skyblue" />
-
-                <TextView
-                    android:id="@+id/DetailCafeView_temp2Title_tv"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-
-                    android:layout_marginStart="100dp"
-                    android:layout_marginTop="435dp"
-                    android:text="temporary"
-                    android:textColor="#7C7575"
-                    android:textSize="11sp"
-                    android:textStyle="normal"
-
-                    />
-
-                <TextView
-                    android:id="@+id/DetailCafeView_temp2_tv"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="100dp"
-                    android:layout_marginTop="450dp"
-                    android:text="현재 카페 보유 텀블러 10개 이상!"
-                    android:textColor="#5A8CEF"
-                    android:textSize="16sp"
-                    android:textStyle="bold"
-
-                    />
-
-                <View
-                    android:layout_width="360dp"
-                    android:layout_height="1px"
-                    android:layout_marginStart="15dp"
-                    android:layout_marginTop="485dp"
-                    android:background="#BEBEBF" />
-
-                <ImageView
-                    android:id="@+id/DetailCafeView_temp3Icon_iv"
-                    android:layout_width="25dp"
-                    android:layout_height="20dp"
-                    android:layout_marginStart="50dp"
-                    android:layout_marginTop="510dp"
-                    android:src="@drawable/dama_logo_skyblue" />
-
-                <TextView
-                    android:id="@+id/DetailCafeView_temp3Title_tv"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-
-                    android:layout_marginStart="100dp"
-                    android:layout_marginTop="495dp"
-                    android:text="temporary"
-                    android:textColor="#7C7575"
-                    android:textSize="11sp"
-                    android:textStyle="normal"
-
-                    />
-
-                <TextView
-                    android:id="@+id/DetailCafeView_temp3_tv"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="100dp"
-                    android:layout_marginTop="510dp"
-                    android:text="현재 카페 보유 텀블러 10개 이상!"
-                    android:textColor="#5A8CEF"
-                    android:textSize="16sp"
-                    android:textStyle="bold"
-
-                    />
-
-                <View
-                    android:layout_width="360dp"
-                    android:layout_height="1px"
-                    android:layout_marginStart="15dp"
-                    android:layout_marginTop="545dp"
-                    android:background="#BEBEBF" />
-
-                <ImageView
-                    android:id="@+id/DetailCafeView_temp4Icon_iv"
-                    android:layout_width="25dp"
-                    android:layout_height="20dp"
-                    android:layout_marginStart="50dp"
-                    android:layout_marginTop="570dp"
-                    android:src="@drawable/dama_logo_skyblue" />
-
-                <TextView
-                    android:id="@+id/DetailCafeView_temp4Title_tv"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-
-                    android:layout_marginStart="100dp"
-                    android:layout_marginTop="555dp"
-                    android:text="temporary"
-                    android:textColor="#7C7575"
-                    android:textSize="11sp"
-                    android:textStyle="normal"
-
-                    />
-
-                <TextView
-                    android:id="@+id/DetailCafeView_temp4_tv"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="100dp"
-                    android:layout_marginTop="570dp"
-                    android:text="위아래 간격 60dp"
-                    android:textColor="#5A8CEF"
-                    android:textSize="16sp"
-                    android:textStyle="bold"
-
-                    />
 
 
             </androidx.cardview.widget.CardView>
