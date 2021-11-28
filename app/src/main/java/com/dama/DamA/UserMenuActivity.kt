@@ -27,7 +27,8 @@ class UserMenuActivity : AppCompatActivity(){
                 Firebase.auth.signOut()
             val i = Intent(this, UserLoginActivity::class.java)
             // set the new task and clear flags
-            i.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+            i.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
+
             startActivity(i)
         }
     }

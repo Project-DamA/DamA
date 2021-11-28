@@ -22,6 +22,21 @@ class UserLoginActivity : AppCompatActivity() {
         binding= ActivityUserLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+//        if (Firebase.auth.currentUser!=null){
+//            if (FirebaseDB().userOrOwner()=="User") {
+//                print(message = "User")
+////                startActivity(Intent(this, UserMainActivity::class.java))
+//            }
+//            else{
+////                startActivity(Intent(this, OwnerMainActivity::class.java))
+//            }
+//            finish()
+//        }
+
+
+
+
+
 
         //사장님 로그인 전환 시
         binding.UserLoginViewAdminBtn.setOnClickListener {
@@ -36,22 +51,32 @@ class UserLoginActivity : AppCompatActivity() {
         auth = Firebase.auth
         //로그인 시
         binding.UserLoginViewLoginBtn.setOnClickListener {
-            var email = binding.LoginViewEmailTextBoxEditTxt.text.toString()
-            var password = binding.UserLoginViewPasswordTextBoxEditTxt.text.toString()
+            val email = binding.LoginViewEmailTextBoxEditTxt.text.toString()
+            val password = binding.UserLoginViewPasswordTextBoxEditTxt.text.toString()
             auth.signInWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this) { task ->
                     if (task.isSuccessful) {
                         // Sign in success, update UI with the signed-in user's information
                         Log.d("Login", "signInWithEmail:success")
-                        val user = auth.currentUser
-                        print("Login")
-                        Toast.makeText(baseContext, "Authentication Success.",
-                            Toast.LENGTH_SHORT).show()
-                        startActivity(Intent(this,UserMainActivity::class.java))
+                        if (true) {
+                            Toast.makeText(
+                                baseContext, "로그인 성공.",
+                                Toast.LENGTH_SHORT
+                            ).show()
+                            val i = Intent(this, UserMainActivity::class.java)
+                            i.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK
+                            startActivity(i)
+                        }
+                        else{
+                            Toast.makeText(
+                                baseContext, "유저 계정이 아닙니다.",
+                                Toast.LENGTH_SHORT
+                            ).show()
+                        }
                     } else {
                         // If sign in fails, display a message to the user.
                         Log.w("Login", "signInWithEmail:failure", task.exception)
-                        Toast.makeText(baseContext, "Authentication failed.",
+                        Toast.makeText(baseContext, "로그인 실패. 잠시 후 다시 시도해 주세요.",
                             Toast.LENGTH_SHORT).show()
                     }
                 }

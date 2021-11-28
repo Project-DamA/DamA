@@ -2,6 +2,7 @@ package com.dama.DamA
 
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
+import com.google.firebase.auth.ktx.auth
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.ktx.database
 import com.google.firebase.database.ktx.getValue
@@ -31,16 +32,15 @@ class FirebaseDB {
         database.child("cafe").child(ownerUid).setValue(cafe)
     }
 
-    fun readCafeSetting(ownerUid: String):Cafe? {
-        database = Firebase.database.reference
-        var cafeData:Cafe?=null
-        database.child("cafe").child(ownerUid).get().addOnSuccessListener {
-            Log.i("firebase", "Got value ${it.value}")
-            cafeData=it.getValue<Cafe>()
-        }.addOnFailureListener{
-            Log.e("firebase", "Error getting data", it)
-        }
-        return cafeData
-    }
+//    fun userOrOwner():String{
+//        database = Firebase.database.reference
+//        if (database.child("users").equalTo(Firebase.auth.currentUser?.uid).get().result!=null){
+//            return "User"
+//        }
+//        else{
+//            return "Owner"
+//        }
+//
+//    }//todo: 수정 필요, 현재 작동 불가
 
 }

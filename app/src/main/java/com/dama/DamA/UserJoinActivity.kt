@@ -22,16 +22,6 @@ class UserJoinActivity : AppCompatActivity() {
         setContentView(binding.root)
 
 
-        /*//유저 화면 뷰 to do delete
-        binding.UserJoinViewJoinBtn.setOnClickListener {
-            var email = binding.UserJoinViewEmailTextBoxEditTxt.text.toString()
-            var password = binding.UserJoinViewPasswordTextBoxEditTxt.text.toString()
-            var username = binding.UserJoinViewNameTextBoxEditTxt.text.toString()
-            var age = binding.UserJoinViewAgeTextBoxEditTxt.text.toString()
-           startActivity(Intent(this,UserMainActivity::class.java))
-        }*/
-
-
         //사장님용 전환 버튼
         binding.UserJoinViewAdminBtn.setOnClickListener {
             startActivity(Intent(this, OwnerJoinActivity::class.java))

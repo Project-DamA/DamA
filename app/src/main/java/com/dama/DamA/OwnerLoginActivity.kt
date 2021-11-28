@@ -50,7 +50,9 @@ class OwnerLoginActivity : AppCompatActivity() {
                         print("Login")
                         Toast.makeText(baseContext, "Authentication Success.",
                             Toast.LENGTH_SHORT).show()
-                        startActivity(Intent(this,OwnerMainActivity::class.java))
+                        var i = Intent(this,OwnerMainActivity::class.java)
+                        i.flags=Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                        startActivity(i)
                     } else {
                         // If sign in fails, display a message to the user.
                         Log.w("Login", "signInWithEmail:failure", task.exception)
