@@ -52,7 +52,6 @@ class OwnerJoinActivity : AppCompatActivity() {
             var ownername=binding.OwnerJoinViewNameTextBoxEditTxt.text.toString()
             var age = binding.OwnerJoinViewAgeTextBoxEditTxt.text.toString()
             var phoneNumber = binding.OwnerJoinViewPhoneTextBoxEditTxt.text.toString()
-            var signUpCheck = false
             if (password != passwordcheck) {
                 val builder = AlertDialog.Builder(this)
 

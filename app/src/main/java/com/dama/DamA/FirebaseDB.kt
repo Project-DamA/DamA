@@ -34,21 +34,23 @@ class FirebaseDB {
         database.child("cafe").child(ownerUid).setValue(cafe)
     }
 
-//    fun userOrOwner():String{
-//        database = Firebase.database.reference
-//        val query=database.child("users")
-//        query.addValueEventListener(object:ValueEventListener{
-//            override fun onDataChange(snapshot: DataSnapshot) {
-//                TODO("Not yet implemented")
-//            }
-//        })
-//        if (database.child("users").equalTo(Firebase.auth.currentUser?.uid).get(      ).result!=null){
-//            return "User"
-//        }
-//        else{
-//            return "Owner"
-//        }
-//
-//    }//todo: 수정 필요, 현재 작동 불가
+    fun userOrOwner(uid:String):String{
+        database = Firebase.database.reference
+        val query=database.child("users")
+        var result:String=""
+        query.equalTo(uid).get().addOnCompleteListener{
+            if(it.result!!.getValue()!=null) {
+                val count=it.result!!.getChildrenCount().toInt()
+                if(count==1){
+                    result= "User"
+                }
+                else{
+                    result="Owner"
+                }
+            }
+        }
+
+        return result
+    }
 
 }

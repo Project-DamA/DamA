@@ -14,21 +14,22 @@ import android.widget.Toast
 import com.dama.DamA.databinding.ActivityUserLoginBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
-
 
 
 class UserLoginActivity : AppCompatActivity() {
     lateinit var binding: ActivityUserLoginBinding
 
     private lateinit var auth: FirebaseAuth
-
-    private lateinit var progressDialog:ProgressDialog
-    var email=""
-    var password=""
+    private lateinit var database: DatabaseReference
+    private lateinit var progressDialog: ProgressDialog
+    var email = ""
+    var password = ""
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding= ActivityUserLoginBinding.inflate(layoutInflater)
+        binding = ActivityUserLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
 
@@ -42,24 +43,14 @@ class UserLoginActivity : AppCompatActivity() {
         auth = FirebaseAuth.getInstance()
         checkUser()
 
-//        if (Firebase.auth.currentUser!=null){
-//            if (FirebaseDB().userOrOwner()=="User") {
-//                print(message = "User")
-////                startActivity(Intent(this, UserMainActivity::class.java))
-//            }
-//            else{
-////                startActivity(Intent(this, OwnerMainActivity::class.java))
-//            }
-//            finish()
-//        }
 
-
+        database = Firebase.database.reference
 
 
         //사장님 로그인 전환 시
         binding.UserLoginViewAdminBtn.setOnClickListener {
-            startActivity(Intent(this,OwnerLoginActivity::class.java))
-            overridePendingTransition(R.anim.slide_from_right,R.anim.slide_to_left)
+            startActivity(Intent(this, OwnerLoginActivity::class.java))
+            overridePendingTransition(R.anim.slide_from_right, R.anim.slide_to_left)
         }
 
         //회원가입 시
@@ -73,69 +64,79 @@ class UserLoginActivity : AppCompatActivity() {
         } //오너계정을 유저 로그인에 하니 로그인 됨 반대도 됨
 
 
-        binding.UserLoginViewSerachPasswordTv.setOnClickListener{
+        binding.UserLoginViewSerachPasswordTv.setOnClickListener {
 
         }
     }
-    private fun checkUser(){
-        val firebaseUser= auth.currentUser
-        if (firebaseUser!=null){
-            startActivity(Intent(this,UserMainActivity::class.java))
+
+    private fun checkUser() {
+        val firebaseUser = auth.currentUser
+        if (firebaseUser != null) {
+            startActivity(Intent(this, UserMainActivity::class.java))
             finish()
         }
     }
 
 
-    private fun firebaseLogin(){
+    private fun firebaseLogin() {
         progressDialog.show()
-
         auth.signInWithEmailAndPassword(email, password)
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
                     progressDialog.dismiss()
                     // Sign in success, update UI with the signed-in user's information
                     Log.d("Login", "signInWithEmail:success")
-                    if (true) {
-                        Toast.makeText(
-                            baseContext, "로그인 성공.",
-                            Toast.LENGTH_SHORT
-                        ).show()
-                        val i = Intent(this, UserMainActivity::class.java)
-                        startActivity(i)
-                        finish()
+                    database.child("users").get().addOnCompleteListener(this) {
+                        if (it.isSuccessful) {
+                            if (it.result?.hasChild(auth.currentUser?.uid.toString())==true) {
+                                Toast.makeText(
+                                    baseContext, "로그인 성공.",
+                                    Toast.LENGTH_SHORT
+                                ).show()
+                                val i = Intent(this, UserMainActivity::class.java)
+                                startActivity(i)
+                                finish()
+                            } else {
+                                Toast.makeText(
+                                    baseContext, "유저 계정이 아닙니다.",
+                                    Toast.LENGTH_SHORT
+                                ).show()
+                            }
+                        } else {
+                            // If sign in fails, display a message to the user.
+                            Log.w("Login", "signInWithEmail:failure", task.exception)
+                            progressDialog.dismiss()
+                            Toast.makeText(
+                                baseContext, "로그인 실패. 잠시 후 다시 시도해 주세요.",
+                                Toast.LENGTH_SHORT
+                            ).show()
+                        }
+
                     }
-                    else{
-                        Toast.makeText(
-                            baseContext, "유저 계정이 아닙니다.",
-                            Toast.LENGTH_SHORT
-                        ).show()
-                    }
-                } else {
-                    // If sign in fails, display a message to the user.
-                    Log.w("Login", "signInWithEmail:failure", task.exception)
-                    progressDialog.dismiss()
-                    Toast.makeText(baseContext, "로그인 실패. 잠시 후 다시 시도해 주세요.",
-                        Toast.LENGTH_SHORT).show()
                 }
+
             }
 
     }
 
-    private fun validateData(){
-        email=binding.UserLoginViewEmailTextBoxEditTxt.text.toString().trim()
-        password=binding.UserLoginViewPasswordTextBoxEditTxt.text.toString().trim()
+    private fun validateData() {
+        email = binding.UserLoginViewEmailTextBoxEditTxt.text.toString().trim()
+        password = binding.UserLoginViewPasswordTextBoxEditTxt.text.toString().trim()
 
-        if(!Patterns.EMAIL_ADDRESS.matcher(email).matches()){
-            binding.UserLoginViewEmailTextBoxEditTxt.error="지정된 형식이 아닙니다."
+        if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+            binding.UserLoginViewEmailTextBoxEditTxt.error = "지정된 형식이 아닙니다."
         }
-        else if(TextUtils.isEmpty(password)){
-            binding.UserLoginViewPasswordTextBoxEditTxt.error="패스워드를 입력해주세요."
-        }
-        else if(password.length<6){
-            binding.UserLoginViewPasswordTextBoxEditTxt.error="패스워드는 6자리 이상입니다."
-        }
-        else{
-            firebaseLogin()
+
+        when {
+            TextUtils.isEmpty(password) -> {
+                binding.UserLoginViewPasswordTextBoxEditTxt.error = "패스워드를 입력해주세요."
+            }
+            password.length < 6 -> {
+                binding.UserLoginViewPasswordTextBoxEditTxt.error = "패스워드는 6자리 이상입니다."
+            }
+            else -> {
+                firebaseLogin()
+            }
         }
 
     }
