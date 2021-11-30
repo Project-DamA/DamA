@@ -3,7 +3,9 @@ package com.dama.DamA
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.ktx.auth
+import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.ValueEventListener
 import com.google.firebase.database.ktx.database
 import com.google.firebase.database.ktx.getValue
 import com.google.firebase.ktx.Firebase
@@ -34,7 +36,13 @@ class FirebaseDB {
 
 //    fun userOrOwner():String{
 //        database = Firebase.database.reference
-//        if (database.child("users").equalTo(Firebase.auth.currentUser?.uid).get().result!=null){
+//        val query=database.child("users")
+//        query.addValueEventListener(object:ValueEventListener{
+//            override fun onDataChange(snapshot: DataSnapshot) {
+//                TODO("Not yet implemented")
+//            }
+//        })
+//        if (database.child("users").equalTo(Firebase.auth.currentUser?.uid).get(      ).result!=null){
 //            return "User"
 //        }
 //        else{

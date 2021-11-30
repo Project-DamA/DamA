@@ -107,7 +107,7 @@
                 android:paddingEnd="6dp">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/LoginView_emailTextBox_editTxt"
+                    android:id="@+id/UserLoginView_emailTextBox_editTxt"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="#FFFCFC"
