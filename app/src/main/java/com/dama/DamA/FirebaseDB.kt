@@ -24,7 +24,7 @@ class FirebaseDB {
         database = Firebase.database.reference
         val owner = Owner(name, email,phoneNumber)
 
-        database.child("owner").child(ownerId).setValue(owner)
+        database.child("owners").child(ownerId).setValue(owner)
     }
 
     fun writeCafeSetting(ownerUid:String,cafeName: String, cafeSubName: String, location: String, call:String, runtime:String, facility:String, rentalTumbler:String) {
@@ -51,6 +51,14 @@ class FirebaseDB {
         }
 
         return result
+    }
+
+
+    fun writeRentalRequest(userId:String) {
+        database = Firebase.database.reference
+        val rentalRequest = RentalRequest(userId)
+
+        database.child("request").child("rental").child(userId).setValue(rentalRequest)
     }
 
 }

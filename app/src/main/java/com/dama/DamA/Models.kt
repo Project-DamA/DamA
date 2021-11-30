@@ -18,3 +18,8 @@ data class Cafe(val cafeName: String? = null, val cafeSubName: String? = null, v
     // Null default values create a no-argument default constructor, which is needed
     // for deserialization from a DataSnapshot.
 }
+
+data class RentalRequest(val userId: String?) {
+    // Null default values create a no-argument default constructor, which is needed
+    // for deserialization from a DataSnapshot.
+}

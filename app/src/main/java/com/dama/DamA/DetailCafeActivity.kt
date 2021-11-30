@@ -1,12 +1,15 @@
 package com.dama.DamA
 
+import android.app.ProgressDialog
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import androidx.viewpager2.widget.ViewPager2
 import com.dama.DamA.databinding.ActivityDetailCafeBinding
 import com.google.firebase.auth.ktx.auth
+
 import com.google.firebase.database.DatabaseReference
+
 import com.google.firebase.database.ktx.database
 import com.google.firebase.database.ktx.getValue
 import com.google.firebase.ktx.Firebase
@@ -61,6 +64,16 @@ class DetailCafeActivity : AppCompatActivity() {
             }
         }.addOnFailureListener {
             Log.e("firebase", "Error getting data", it)
+        }
+
+
+
+        //빌리기 버튼
+        binding.DetailCafeViewRentalBtn.setOnClickListener{
+            FirebaseDB().writeRentalRequest(
+                Firebase.auth.currentUser?.uid.toString())
+
+
         }
 
     }

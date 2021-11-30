@@ -275,6 +275,26 @@
                     android:background="#BEBEBF" />
 
 
+                <Button
+                    android:id="@+id/DetailCafeView_rental_btn"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_marginStart="50dp"
+                    android:layout_marginTop="470dp"
+                    android:text="빌리기"
+                    android:background="#FFC107"/>
+
+
+                <Button
+                    android:id="@+id/DetailCafeView_return_btn"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_marginStart="240dp"
+                    android:layout_marginTop="470dp"
+                    android:text="반납하기"
+                    android:background="#8BC34A" />
+
+
 
 
             </androidx.cardview.widget.CardView>
