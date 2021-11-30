@@ -3,6 +3,10 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/AndroidStudio_Project/DamA/app/src/main/res/layout/activity_owner_login.xml" value="0.36614583333333334" />
+        <entry key="..\:/AndroidStudio_Project/DamA/app/src/main/res/layout/activity_user_join.xml" value="0.28425925925925927" />
+        <entry key="..\:/AndroidStudio_Project/DamA/app/src/main/res/layout/activity_user_login.xml" value="0.36614583333333334" />
+        <entry key="..\:/AndroidStudio_Project/DamA/app/src/main/res/layout/activity_user_main.xml" value="0.28425925925925927" />
         <entry key="..\:/App(Kotlin)/DAMA/app/src/main/res/drawable/admin_consumer_btn.xml" value="0.24144736842105263" />
         <entry key="..\:/App(Kotlin)/DAMA/app/src/main/res/drawable/admin_user_btn.xml" value="0.24144736842105263" />
         <entry key="..\:/App(Kotlin)/DAMA/app/src/main/res/drawable/costum_button.xml" value="0.25" />
