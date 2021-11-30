@@ -23,3 +23,8 @@ data class RentalRequest(val userId: String?) {
     // Null default values create a no-argument default constructor, which is needed
     // for deserialization from a DataSnapshot.
 }
+
+data class ReturnRequest(val userId: String?) {
+    // Null default values create a no-argument default constructor, which is needed
+    // for deserialization from a DataSnapshot.
+}

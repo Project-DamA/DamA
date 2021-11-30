@@ -76,5 +76,13 @@ class DetailCafeActivity : AppCompatActivity() {
 
         }
 
+        //반납하기 버튼
+        binding.DetailCafeViewReturnBtn.setOnClickListener{
+            FirebaseDB().writeReturnRequest(
+                Firebase.auth.currentUser?.uid.toString())
+
+
+        }
+
     }
 }

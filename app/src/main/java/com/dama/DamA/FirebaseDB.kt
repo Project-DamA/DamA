@@ -61,4 +61,11 @@ class FirebaseDB {
         database.child("request").child("rental").child(userId).setValue(rentalRequest)
     }
 
+    fun writeReturnRequest(userId:String) {
+        database = Firebase.database.reference
+        val returnRequest = ReturnRequest(userId)
+
+        database.child("request").child("return").child(userId).setValue(returnRequest)
+    }
+
 }
