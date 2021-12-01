@@ -34,6 +34,14 @@ class FirebaseDB {
         database.child("cafe").child(ownerUid).setValue(cafe)
     }
 
+    //rentalRequest 승인 이후 cafeDB에 rentalUsers추가
+    fun writeCafeRentalUsers(userId: String) {
+        database = Firebase.database.reference
+        val rentalUsers = RentalUsers(userId)
+
+        database.child("cafe").child("1pRZNEauP4d0QejN6tQ85YruGQA3").child("rentalUsers").setValue(rentalUsers)
+    }
+
     fun userOrOwner(uid:String):String{
         database = Firebase.database.reference
         val query=database.child("users")
@@ -66,6 +74,13 @@ class FirebaseDB {
         val returnRequest = ReturnRequest(userId)
 
         database.child("request").child("return").child(userId).setValue(returnRequest)
+    }
+
+    fun writeUserTumblerTime(time:String) {
+        database = Firebase.database.reference
+        val rentalTumblerTime = RentalTumbler(time)
+
+        database.child("users").child("MbQVZ3yo3ENgvw2dn8TKSBMaFYw2").child("rentaltime").setValue(rentalTumblerTime)
     }
 
 }
