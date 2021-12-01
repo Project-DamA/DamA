@@ -2,28 +2,36 @@ package com.dama.DamA
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.dama.DamA.databinding.ActivityOwnerPermitServiceBinding
 import com.google.firebase.database.*
+import com.google.firebase.database.ktx.getValue
 
 class OwnerPermitServiceActivity : AppCompatActivity(){
+    private lateinit var recyclerviewAdapter: RecyclerviewAdapter
     private lateinit var binding : ActivityOwnerPermitServiceBinding
     private lateinit var dbref : DatabaseReference
-    private lateinit var permitServiceRecyclerview : RecyclerView
-    private lateinit var ArrayList : ArrayList<User>
+    private lateinit var permitServiceRecyclerView : RecyclerView
+    private lateinit var arrayList : ArrayList<User>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityOwnerPermitServiceBinding.inflate(layoutInflater)
-        setContentView(R.layout.activity_owner_permit_service)
+        setContentView(binding.root)
+        binding.RequestList.layoutManager=LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false)
+        binding.RequestList.setHasFixedSize(true)
 
-        permitServiceRecyclerview = binding.RequestList
-        permitServiceRecyclerview.layoutManager = LinearLayoutManager(this)
-        permitServiceRecyclerview.setHasFixedSize(true)
+//        permitServiceRecyclerView = binding.RequestList
+//        permitServiceRecyclerView.layoutManager = LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false)
+//        permitServiceRecyclerView.setHasFixedSize(true)
 
-        ArrayList = arrayListOf()
+        arrayList = arrayListOf()
         getUserData()
+//        Log.d("arrayList1",arrayList.toString())
+
+
     }
 
 
@@ -40,18 +48,17 @@ class OwnerPermitServiceActivity : AppCompatActivity(){
                     for (userSnapshot in snapshot.children){
 
 
-                        val user = userSnapshot.getValue(User::class.java)
-                        ArrayList.add(user!!)
-
+                        val user = userSnapshot.getValue<User>()
+                        arrayList.add(user!!)
                     }
+                    recyclerviewAdapter=RecyclerviewAdapter(arrayList)
+                    binding.RequestList.adapter = recyclerviewAdapter
 
-                    permitServiceRecyclerview.adapter = RecyclerviewAdapter(ArrayList)
-
-
+                }
+                else{
                 }
 
             }
-
             override fun onCancelled(error: DatabaseError) {
                 TODO("Not yet implemented")
             }
