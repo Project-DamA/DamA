@@ -1,58 +1,58 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.dama.DamA">
-    <uses-permission android:name="android.permission.INTERNET"/>
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
-        android:usesCleartextTraffic="true"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar"
-        >
+        android:usesCleartextTraffic="true">
         <activity
-            android:name="com.dama.DamA.UserLoginActivity"
+            android:name=".OwnerPermitServiceActivity"
+            android:exported="false" />
+        <activity
+            android:name=".UserLoginActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
-            android:name="com.dama.DamA.OwnerLoginActivity"
+            android:name=".OwnerLoginActivity"
             android:exported="false" />
         <activity
-            android:name="com.dama.DamA.UserJoinActivity"
+            android:name=".UserJoinActivity"
             android:exported="false" />
         <activity
-            android:name="com.dama.DamA.OwnerJoinActivity"
+            android:name=".OwnerJoinActivity"
             android:exported="false" />
         <activity
-            android:name="com.dama.DamA.DetailCafeActivity"
+            android:name=".DetailCafeActivity"
             android:exported="false"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
-            android:name="com.dama.DamA.SettingCafeActivity"
+            android:name=".SettingCafeActivity"
             android:exported="false"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
-            android:name="com.dama.DamA.UserSearchActivity"
+            android:name=".UserSearchActivity"
             android:exported="false"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
-            android:name="com.dama.DamA.OwnerMainActivity"
-            android:exported="false"/>
-        <activity android:name="com.dama.DamA.OwnerMenuActivity"/>
-
+            android:name=".OwnerMainActivity"
+            android:exported="false" />
+        <activity android:name=".OwnerMenuActivity" />
         <activity
-            android:name="com.dama.DamA.UserMainActivity"
-            android:exported="false"/>
-
-        <activity android:name="com.dama.DamA.UserMenuActivity"/>
-
+            android:name=".UserMainActivity"
+            android:exported="false" />
+        <activity android:name=".UserMenuActivity" />
     </application>
 
 </manifest>

@@ -26,6 +26,10 @@ class OwnerMainActivity : AppCompatActivity() {
         }
 
 
+        binding.OwnerMainViewQrcodeIb.setOnClickListener{
+            startActivity(Intent(this,OwnerPermitServiceActivity::class.java))
+        }
+
         // cafeadpater와 연결
         val cafeAdapter = MyCafeAdapterClass(this)
         binding.OwnerMainViewMycafeVp.adapter=cafeAdapter

@@ -38,8 +38,6 @@ class UserLoginActivity : AppCompatActivity() {
         progressDialog.setMessage("로그인 중...")
         progressDialog.setCanceledOnTouchOutside(false)
 
-
-
         auth = FirebaseAuth.getInstance()
         checkUser()
 
@@ -101,6 +99,7 @@ class UserLoginActivity : AppCompatActivity() {
                                     baseContext, "유저 계정이 아닙니다.",
                                     Toast.LENGTH_SHORT
                                 ).show()
+
                             }
                         } else {
                             // If sign in fails, display a message to the user.

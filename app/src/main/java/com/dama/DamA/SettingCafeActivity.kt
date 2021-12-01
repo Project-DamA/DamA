@@ -59,7 +59,7 @@ class SettingCafeActivity : AppCompatActivity() {
                 cafe_call.setText(cafeData?.call.toString())
                 cafe_runtime.setText(cafeData?.runtime.toString())
                 cafe_facility.setText(cafeData?.facility.toString())
-                cafe_tumbler.setText(cafeData?.rentalTumbler.toString())
+                cafe_tumbler.setText(cafeData?.totalTumbler.toString())
             }
         }.addOnFailureListener{
             Log.e("firebase", "Error getting data", it)
