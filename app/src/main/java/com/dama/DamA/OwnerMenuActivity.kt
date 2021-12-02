@@ -37,21 +37,5 @@ class OwnerMenuActivity : AppCompatActivity(){
         }
 
 
-        //이 코드는 rent 안에 test 가 key값인 항목만 지워줌 -> 추후에 child("request").child("rental").child(특정데이터)형식으로 수정 바람
-        binding.OwnerMenuViewTemporaryBtn.setOnClickListener {
-            var mDatabase = FirebaseDatabase.getInstance();
-            var dataRef = mDatabase.getReference("rent").child("test")
-
-            var now = System.currentTimeMillis()
-            var date = Date(now)
-
-//지우기 전에 userId 읽어서 저장해 두기
-           var userid = database.child("rent").child("test").get()
-//49번줄 읽어들이기 부터 해야됨
-            dataRef.removeValue();  //지우는코드
-            FirebaseDB().writeUserTumblerTime((date).toString())   //userDB에 빌린 시간 추가
-            FirebaseDB().writeCafeRentalUsers((userid).toString())     //cafeDB에 rentalUsers 에 추가
-
-        }
     }
 }

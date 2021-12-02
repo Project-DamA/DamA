@@ -16,6 +16,9 @@ class OwnerMainActivity : AppCompatActivity() {
         binding = ActivityOwnerMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+
+
+
         //더보기 버튼
         binding.OwnerMainViewMoreIb.setOnClickListener {
             startActivity(Intent(this, OwnerMenuActivity::class.java))

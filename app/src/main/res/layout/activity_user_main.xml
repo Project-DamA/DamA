@@ -201,33 +201,20 @@
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@id/UserMainView_nearby_txt">
 
-                        <androidx.constraintlayout.widget.ConstraintLayout
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/CafeList"
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content">
-
-                            <androidx.viewpager2.widget.ViewPager2
-                                android:id="@+id/UserMainView_nearbyinfo_vp"
-                                android:layout_width="match_parent"
-                                android:layout_height="150dp"
-                                app:layout_constraintEnd_toEndOf="parent"
-                                app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toTopOf="parent"/>
-
-                        </androidx.constraintlayout.widget.ConstraintLayout>
+                            android:layout_height="match_parent"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.0"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            tools:listitem="@layout/fragment_cafe_list">
+                        </androidx.recyclerview.widget.RecyclerView>
 
                     </androidx.cardview.widget.CardView>
 
-                    <TextView
-                        android:id="@+id/UserMainView_nearby_xt"
-                        android:layout_width="wrap_content"
-                        android:layout_height="10sp"
-                        android:text=""
-                        android:textColor="@color/black"
-                        android:layout_marginStart="15dp"
-                        android:layout_marginTop="10dp"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@id/UserMainView_nearbyinfo_cv"/>
-                    
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
             </androidx.cardview.widget.CardView>

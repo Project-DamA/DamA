@@ -12,8 +12,35 @@
         android:layout_height="match_parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:listitem="@layout/fragment_permit_service" />
+        app:layout_constraintVertical_bias="0.7"
+        tools:listitem="@layout/fragment_permit_service"
+        android:layout_marginTop="50dp">
+
+    </androidx.recyclerview.widget.RecyclerView>
+
+    <LinearLayout
+        android:id="@+id/OwnerPermitService_btnBox_ll"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <Button
+            android:id="@+id/OwnerPermitService_rental_btn"
+            android:layout_width="186dp"
+            android:layout_height="56dp"
+            android:text="대여" />
+
+        <Button
+            android:id="@+id/OwnerPermitService_return_btn"
+            android:layout_width="186dp"
+            android:layout_height="56dp"
+            android:text="반납" />
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

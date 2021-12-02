@@ -49,7 +49,9 @@ class DetailCafeActivity : AppCompatActivity() {
         var cafe_runtime = binding.DetailCafeViewRuntimeTv
         var cafe_facility = binding.DetailCafeViewFacilityTv
         var cafe_tumbler = binding.DetailCafeViewRentalTumblerTv
-        database.child("cafe").child("Uoro2PfTmdUD41x7lVr0Ba0Ocp93").get().addOnSuccessListener {
+
+        val ownerUid=intent.getStringExtra("ownerUid").toString()
+        database.child("cafe").child(ownerUid).get().addOnSuccessListener {
             Log.i("firebase", "Got value ${it.value}")
             if(it.exists()){
                 var cafeData=it.getValue<Cafe>()
@@ -71,8 +73,6 @@ class DetailCafeActivity : AppCompatActivity() {
         binding.DetailCafeViewRentalBtn.setOnClickListener{
             FirebaseDB().writeRentalRequest(
                 Firebase.auth.currentUser?.uid.toString())
-
-
         }
 
         //반납하기 버튼

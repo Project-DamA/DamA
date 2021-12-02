@@ -1,30 +1,25 @@
 package com.dama.DamA
 
-import android.util.Log
-import androidx.appcompat.app.AppCompatActivity
-import com.google.firebase.auth.ktx.auth
-import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseReference
-import com.google.firebase.database.ValueEventListener
 import com.google.firebase.database.ktx.database
-import com.google.firebase.database.ktx.getValue
 import com.google.firebase.ktx.Firebase
+import java.util.*
 
 class FirebaseDB {
     private lateinit var database: DatabaseReference
 
-    fun writeNewUser(userId: String, name: String, email: String, phoneNumber:String) {
+    fun writeNewUser(userUid: String, name: String, email: String, phoneNumber:String) {
         database = Firebase.database.reference
         val user = User(name, email,phoneNumber)
 
-        database.child("users").child(userId).setValue(user)
+        database.child("users").child(userUid).setValue(user)
     }
 
-    fun writeNewOwner(ownerId: String, name: String, email: String, phoneNumber:String) {
+    fun writeNewOwner(ownerUid: String, name: String, email: String, phoneNumber:String) {
         database = Firebase.database.reference
         val owner = Owner(name, email,phoneNumber)
 
-        database.child("owners").child(ownerId).setValue(owner)
+        database.child("owners").child(ownerUid).setValue(owner)
     }
 
     fun writeCafeSetting(ownerUid:String,cafeName: String, cafeSubName: String, location: String, call:String, runtime:String, facility:String, rentalTumbler:String) {
@@ -32,14 +27,6 @@ class FirebaseDB {
         val cafe = Cafe(cafeName, cafeSubName,location,call,runtime,facility,rentalTumbler)
 
         database.child("cafe").child(ownerUid).setValue(cafe)
-    }
-
-    //rentalRequest 승인 이후 cafeDB에 rentalUsers추가
-    fun writeCafeRentalUsers(userId: String) {
-        database = Firebase.database.reference
-        val rentalUsers = RentalUsers(userId)
-
-        database.child("cafe").child("1pRZNEauP4d0QejN6tQ85YruGQA3").child("rentalUsers").setValue(rentalUsers)
     }
 
     fun userOrOwner(uid:String):String{
@@ -66,7 +53,7 @@ class FirebaseDB {
         database = Firebase.database.reference
         val rentalRequest = RentalRequest(userId)
 
-        database.child("request").child("rental").child(userId).setValue(rentalRequest)
+        database.child("request").child("Uoro2PfTmdUD41x7lVr0Ba0Ocp93").child("rental").child(userId).setValue(rentalRequest)
     }
 
     fun writeReturnRequest(userId:String) {
@@ -76,11 +63,17 @@ class FirebaseDB {
         database.child("request").child("return").child(userId).setValue(returnRequest)
     }
 
-    fun writeUserTumblerTime(time:String) {
+    fun writeUserTumblerTime(user:User) {
         database = Firebase.database.reference
-        val rentalTumblerTime = RentalTumbler(time)
+        val nowTime = System.currentTimeMillis()
+        val date= Date(nowTime).toString()
+        val newUser=User(user.uid,user.username,user.email,user.phoneNumber,date)
+        database.child("users").child(user.uid.toString()).setValue(newUser)
+    }
 
-        database.child("users").child("MbQVZ3yo3ENgvw2dn8TKSBMaFYw2").child("rentaltime").setValue(rentalTumblerTime)
+    fun writeCafeRentalUsers(userUid:String){
+        database = Firebase.database.reference
+        database.child("cafe").child("rentalUsers").child(userUid).setValue(userUid)
     }
 
 }
