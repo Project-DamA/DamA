@@ -3,6 +3,7 @@ package com.dama.DamA
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.dama.DamA.databinding.ActivityOwnerPermitServiceBinding
@@ -25,34 +26,44 @@ class OwnerPermitServiceActivity : AppCompatActivity() {
         binding.RequestList.setHasFixedSize(true)
 
         arrayList = arrayListOf()
-        getUserData()
+        getUserData("rental")
+
+        binding.OwnerPermitServiceRentalBtn.setOnClickListener {
+            arrayList = arrayListOf()
+            getUserData("rental")
+        }
+        binding.OwnerPermitServiceReturnBtn.setOnClickListener {
+            arrayList = arrayListOf()
+            getUserData("return")
+        }
 
     }
 
 
-    private fun getUserData() {
+    private fun getUserData(requestType:String) {
         dbref = FirebaseDatabase.getInstance().getReference("request")
-            .child(Firebase.auth.currentUser!!.uid).child("rental")
+            .child(Firebase.auth.currentUser!!.uid).child(requestType)
 
         dbref.addValueEventListener(object : ValueEventListener {
-
             override fun onDataChange(snapshot: DataSnapshot) {
                     if (snapshot.exists()) {
                         val userDBRef = FirebaseDatabase.getInstance().getReference("users").get()
                         userDBRef.addOnSuccessListener {
                             for (userSnapshot in snapshot.children) {
                                 Log.d("userSnapshot", userSnapshot.toString())
-                                val user= it.child(userSnapshot.key.toString()).getValue<User>()
+                                val user= it.child(userSnapshot.value.toString()).getValue<User>()
                                 Log.d("User", user.toString())
                                 arrayList.add(user!!)
 
 
                             }
                             Log.d("arrayList", arrayList.toString())
-                            recyclerviewAdapter = RecyclerviewAdapter(arrayList)
+                            recyclerviewAdapter = RecyclerviewAdapter(arrayList,requestType)
                             binding.RequestList.adapter = recyclerviewAdapter
+                            if(arrayList.isEmpty()){
+                                binding.OwnerPermitServiceNotUsersTv.visibility= View.VISIBLE
+                            }
                         }
-                    } else {
                     }
 
 

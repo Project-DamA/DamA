@@ -16,6 +16,7 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.ktx.database
+import com.google.firebase.database.ktx.getValue
 import com.google.firebase.ktx.Firebase
 
 
@@ -39,10 +40,11 @@ class UserLoginActivity : AppCompatActivity() {
         progressDialog.setCanceledOnTouchOutside(false)
 
         auth = FirebaseAuth.getInstance()
+        database = Firebase.database.reference
         checkUser()
 
 
-        database = Firebase.database.reference
+
 
 
         //사장님 로그인 전환 시
@@ -70,8 +72,22 @@ class UserLoginActivity : AppCompatActivity() {
     private fun checkUser() {
         val firebaseUser = auth.currentUser
         if (firebaseUser != null) {
-            startActivity(Intent(this, UserMainActivity::class.java))
-            finish()
+            database.child("users").get().addOnCompleteListener(this) {
+                if (it.isSuccessful) {
+                    var i:Intent=Intent()
+                    val uid=firebaseUser.uid
+                    if (it.result?.hasChild(uid) == true) {
+                        i=Intent(this, UserMainActivity::class.java)
+                        i.putExtra("userRentalTime",it.result?.child(uid)?.getValue<User>()?.rentalTime)
+
+                    }
+                    else{
+                        i=Intent(this, OwnerMainActivity::class.java)
+                    }
+                    startActivity(i)
+                    finish()
+                }
+            }
         }
     }
 
@@ -85,13 +101,15 @@ class UserLoginActivity : AppCompatActivity() {
                     // Sign in success, update UI with the signed-in user's information
                     Log.d("Login", "signInWithEmail:success")
                     database.child("users").get().addOnCompleteListener(this) {
+                        val uid=auth.currentUser?.uid.toString()
                         if (it.isSuccessful) {
-                            if (it.result?.hasChild(auth.currentUser?.uid.toString())==true) {
+                            if (it.result?.hasChild(uid)==true) {
                                 Toast.makeText(
                                     baseContext, "로그인 성공.",
                                     Toast.LENGTH_SHORT
                                 ).show()
                                 val i = Intent(this, UserMainActivity::class.java)
+                                i.putExtra("userRentalTime",it.result?.child(uid)?.getValue<User>()?.rentalTime)
                                 startActivity(i)
                                 finish()
                             } else {

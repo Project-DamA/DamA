@@ -1,8 +1,13 @@
 package com.dama.DamA
 
+import android.os.Build
+import androidx.annotation.RequiresApi
+import com.google.firebase.auth.ktx.auth
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
+import java.time.LocalDateTime
+import java.time.format.DateTimeFormatter
 import java.util.*
 
 class FirebaseDB {
@@ -10,14 +15,14 @@ class FirebaseDB {
 
     fun writeNewUser(userUid: String, name: String, email: String, phoneNumber:String) {
         database = Firebase.database.reference
-        val user = User(name, email,phoneNumber)
+        val user = User(userUid,name, email,phoneNumber)
 
         database.child("users").child(userUid).setValue(user)
     }
 
     fun writeNewOwner(ownerUid: String, name: String, email: String, phoneNumber:String) {
         database = Firebase.database.reference
-        val owner = Owner(name, email,phoneNumber)
+        val owner = Owner(ownerUid,name, email,phoneNumber)
 
         database.child("owners").child(ownerUid).setValue(owner)
     }
@@ -49,31 +54,69 @@ class FirebaseDB {
     }
 
 
-    fun writeRentalRequest(userId:String) {
+    fun writeRentalRequest(cafeOwnerUid:String,userUid:String) {
         database = Firebase.database.reference
-        val rentalRequest = RentalRequest(userId)
+        val rentalRequest = RentalRequest(userUid)
 
-        database.child("request").child("Uoro2PfTmdUD41x7lVr0Ba0Ocp93").child("rental").child(userId).setValue(rentalRequest)
+        database.child("request").child(cafeOwnerUid).child("rental").child(userUid).setValue(userUid)
     }
 
-    fun writeReturnRequest(userId:String) {
+    fun writeReturnRequest(cafeOwnerUid:String,userUid:String) {
         database = Firebase.database.reference
-        val returnRequest = ReturnRequest(userId)
-
-        database.child("request").child("return").child(userId).setValue(returnRequest)
+        database.child("request").child(cafeOwnerUid).child("return").child(userUid).setValue(userUid)
     }
 
+    @RequiresApi(Build.VERSION_CODES.O)
     fun writeUserTumblerTime(user:User) {
         database = Firebase.database.reference
-        val nowTime = System.currentTimeMillis()
-        val date= Date(nowTime).toString()
-        val newUser=User(user.uid,user.username,user.email,user.phoneNumber,date)
+        val current = LocalDateTime.now()
+
+        val newUser=User(user.uid,user.username,user.email,user.phoneNumber,current.toString())
         database.child("users").child(user.uid.toString()).setValue(newUser)
     }
 
-    fun writeCafeRentalUsers(userUid:String){
+    fun writeCafeRentalUsers(userUid: String){
         database = Firebase.database.reference
-        database.child("cafe").child("rentalUsers").child(userUid).setValue(userUid)
+        val cafeOwnerUid=Firebase.auth.currentUser!!.uid
+        database.child("cafe").child(cafeOwnerUid).child("rentalUsers").child(userUid).setValue(userUid)
+    }
+
+    fun removeUserTumblerTime(user:User) {
+        database = Firebase.database.reference
+        val newUser=User(user.uid,user.username,user.email,user.phoneNumber,null)
+        database.child("users").child(user.uid.toString()).setValue(newUser)
+    }
+
+    fun removeCafeRentalUsers(userUid: String){
+        database = Firebase.database.reference
+        val cafeOwnerUid=Firebase.auth.currentUser!!.uid
+        database.child("cafe").child(cafeOwnerUid).child("rentalUsers").child(userUid).removeValue()
+    }
+
+    fun addCafeRentalTumbler(){
+        database = Firebase.database.reference
+        var tumblerCount:Int=1
+        val cafeOwnerUid=Firebase.auth.currentUser!!.uid
+        val cafeTumblerRef=database.child("cafe").child(cafeOwnerUid).child("rentalTumbler")
+        cafeTumblerRef.get().addOnSuccessListener {
+            if(it.value!=0){
+                tumblerCount=it.value.toString().toInt()+1
+            }
+            cafeTumblerRef.setValue(tumblerCount.toString())
+        }
+
+    }
+    fun subCafeRentalTumbler(){
+        database = Firebase.database.reference
+        var tumblerCount:Int=0
+        val cafeOwnerUid=Firebase.auth.currentUser!!.uid
+        val cafeTumblerRef=database.child("cafe").child(cafeOwnerUid).child("rentalTumbler")
+        cafeTumblerRef.get().addOnSuccessListener {
+            if(it.value!=0){
+                tumblerCount=it.value.toString().toInt()-1
+            }
+            cafeTumblerRef.setValue(tumblerCount.toString())
+        }
     }
 
 }

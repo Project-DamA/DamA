@@ -41,6 +41,8 @@ class DetailCafeActivity : AppCompatActivity() {
         indicator.setViewPager2(binding.DetailCafeViewViewPagerVp)
 
 
+
+
         database = Firebase.database.reference
         var cafe_name = binding.DetailCafeViewNameTv
         var cafe_subname = binding.DetailCafeViewSubNameTv
@@ -49,19 +51,28 @@ class DetailCafeActivity : AppCompatActivity() {
         var cafe_runtime = binding.DetailCafeViewRuntimeTv
         var cafe_facility = binding.DetailCafeViewFacilityTv
         var cafe_tumbler = binding.DetailCafeViewRentalTumblerTv
-
+        var cafe_uid=""
         val ownerUid=intent.getStringExtra("ownerUid").toString()
         database.child("cafe").child(ownerUid).get().addOnSuccessListener {
             Log.i("firebase", "Got value ${it.value}")
             if(it.exists()){
                 var cafeData=it.getValue<Cafe>()
+                cafe_uid=cafeData?.ownerUid.toString()
                 cafe_name.setText(cafeData?.cafeName.toString())
                 cafe_subname.setText(cafeData?.cafeSubName.toString())
                 cafe_location.setText(cafeData?.location.toString())
                 cafe_call.setText(cafeData?.call.toString())
                 cafe_runtime.setText(cafeData?.runtime.toString())
                 cafe_facility.setText(cafeData?.facility.toString())
-                cafe_tumbler.setText(cafeData?.totalTumbler.toString())
+                var tumbler=0
+                if(cafeData?.rentalTumbler==null) {
+                    cafe_tumbler.setText(cafeData?.totalTumbler!!.toString())
+                }
+                else{
+                   tumbler=cafeData?.rentalTumbler!!.toInt()
+                }
+                cafe_tumbler.setText((cafeData?.totalTumbler!!.toInt()-tumbler).toString())
+
             }
         }.addOnFailureListener {
             Log.e("firebase", "Error getting data", it)
@@ -72,15 +83,13 @@ class DetailCafeActivity : AppCompatActivity() {
         //빌리기 버튼
         binding.DetailCafeViewRentalBtn.setOnClickListener{
             FirebaseDB().writeRentalRequest(
-                Firebase.auth.currentUser?.uid.toString())
+                cafe_uid,Firebase.auth.currentUser?.uid.toString())
         }
 
         //반납하기 버튼
         binding.DetailCafeViewReturnBtn.setOnClickListener{
             FirebaseDB().writeReturnRequest(
-                Firebase.auth.currentUser?.uid.toString())
-
-
+                cafe_uid,Firebase.auth.currentUser?.uid.toString())
         }
 
     }
