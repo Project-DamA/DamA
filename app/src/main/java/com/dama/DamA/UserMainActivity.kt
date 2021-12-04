@@ -43,9 +43,10 @@ class UserMainActivity : AppCompatActivity() {
 
         arrayList = arrayListOf()
         getCafeData()
+        getUserData()
         val rentalTimeString = intent.getStringExtra("userRentalTime")
-        if (rentalTimeString==null){
-            binding.UserMainViewViewpagerVp.visibility= View.INVISIBLE
+        if (rentalTimeString == null) {
+            binding.UserMainViewViewpagerVp.visibility = View.INVISIBLE
         }
 
 //        val rentalTimeString = intent.getStringExtra("userRentalTime")
@@ -79,6 +80,27 @@ class UserMainActivity : AppCompatActivity() {
         val indicator = binding.UserMainViewIndicatorDi
         indicator.setViewPager2(binding.UserMainViewViewpagerVp)
 
+    }
+
+    private fun getUserData() {
+        dbref = FirebaseDatabase.getInstance().getReference("users")
+            .child(Firebase.auth.currentUser!!.uid)
+        dbref.addValueEventListener(object : ValueEventListener {
+            override fun onDataChange(snapshot: DataSnapshot) {
+
+
+                val user = snapshot.getValue<User>()
+                if (user!!.rentalTime != null) {
+                    binding.UserMainViewNameTv
+                }
+
+
+            }
+
+            override fun onCancelled(error: DatabaseError) {
+                TODO("Not yet implemented")
+            }
+        })
     }
 
     private fun getCafeData() {

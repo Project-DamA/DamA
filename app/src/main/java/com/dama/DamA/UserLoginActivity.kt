@@ -61,9 +61,9 @@ class UserLoginActivity : AppCompatActivity() {
         //로그인 시
         binding.UserLoginViewLoginBtn.setOnClickListener {
             validateData()
-        } //오너계정을 유저 로그인에 하니 로그인 됨 반대도 됨
+        }
 
-
+        //비밀번호 찾기
         binding.UserLoginViewSerachPasswordTv.setOnClickListener {
 
         }
@@ -113,8 +113,9 @@ class UserLoginActivity : AppCompatActivity() {
                                 startActivity(i)
                                 finish()
                             } else {
+                                auth.signOut()
                                 Toast.makeText(
-                                    baseContext, "유저 계정이 아닙니다.",
+                                    baseContext, "사용자 계정이 아닙니다.",
                                     Toast.LENGTH_SHORT
                                 ).show()
 

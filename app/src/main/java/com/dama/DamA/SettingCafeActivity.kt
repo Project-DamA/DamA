@@ -67,15 +67,16 @@ class SettingCafeActivity : AppCompatActivity() {
 
 
         binding.SettingCafeViewSaveButtonBtn.setOnClickListener {
-            FirebaseDB().writeCafeSetting(
-                Firebase.auth.currentUser?.uid.toString(),
-                cafe_name.text.toString(),
-                cafe_subname.text.toString(),
-                cafe_location.text.toString(),
-                cafe_call.text.toString(),
-                cafe_runtime.text.toString(),
-                cafe_facility.text.toString(),
-                cafe_tumbler.text.toString())
+            val cafe:Cafe=Cafe(
+                    Firebase.auth.currentUser?.uid.toString(),
+            cafe_name.text.toString(),
+            cafe_subname.text.toString(),
+            cafe_location.text.toString(),
+            cafe_call.text.toString(),
+            cafe_runtime.text.toString(),
+            cafe_facility.text.toString(),
+            cafe_tumbler.text.toString())
+            FirebaseDB().writeCafeSetting(cafe)
         }
     }
 }

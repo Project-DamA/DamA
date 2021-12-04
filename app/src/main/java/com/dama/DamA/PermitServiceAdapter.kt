@@ -1,7 +1,6 @@
 package com.dama.DamA
 
 import android.os.Build
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.annotation.RequiresApi
@@ -12,8 +11,8 @@ import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ktx.getValue
 import com.google.firebase.ktx.Firebase
 
-class RecyclerviewAdapter(private val List: ArrayList<User>, val requestType: String) :
-    RecyclerView.Adapter<RecyclerviewAdapter.ViewHolder>() {
+class PermitServiceAdapter(private val List: ArrayList<User>, val requestType: String) :
+    RecyclerView.Adapter<PermitServiceAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val binding: FragmentPermitServiceBinding = FragmentPermitServiceBinding.inflate(
@@ -50,19 +49,13 @@ class RecyclerviewAdapter(private val List: ArrayList<User>, val requestType: St
                     FirebaseDatabase.getInstance().getReference("users").child(user.uid.toString())
                         .get().addOnSuccessListener {
                             val userRef: User = it.getValue<User>()!!
-
-                            FirebaseDB().writeUserTumblerTime(userRef)
-                            FirebaseDB().writeCafeRentalUsers(user.uid.toString())
-                            FirebaseDB().addCafeRentalTumbler()
+                            FirebaseDB().writeUserRental(userRef)
                         }
-
                 } else {
                     FirebaseDatabase.getInstance().getReference("users").child(user.uid.toString())
                         .get().addOnSuccessListener {
                             val userRef: User = it.getValue<User>()!!
-                            FirebaseDB().removeUserTumblerTime(userRef)
-                            FirebaseDB().removeCafeRentalUsers(user.uid.toString())
-                            FirebaseDB().subCafeRentalTumbler()
+                            FirebaseDB().removeUserRental(userRef)
                         }
                 }
                 val dbRequestRef =

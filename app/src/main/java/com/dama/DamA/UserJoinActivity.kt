@@ -64,7 +64,8 @@ class UserJoinActivity : AppCompatActivity() {
                             Toast.LENGTH_SHORT
                         ).show()
                         finish() // 가입창 종료
-                        FirebaseDB().writeNewUser(Firebase.auth.currentUser?.uid.toString(),username,email,phoneNumber)
+                        val user=User(Firebase.auth.currentUser?.uid.toString(),username,email,phoneNumber)
+                        FirebaseDB().writeNewUser(user)
                         startActivity(Intent(this,UserMainActivity::class.java))
                     } else {
                         Toast.makeText(

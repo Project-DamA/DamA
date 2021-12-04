@@ -80,7 +80,8 @@ class OwnerJoinActivity : AppCompatActivity() {
                             Toast.LENGTH_SHORT
                         ).show()
                         finish() // 가입창 종료
-                        FirebaseDB().writeNewOwner(Firebase.auth.currentUser?.uid.toString(),ownername,email,phoneNumber)
+                        val owner=Owner(Firebase.auth.currentUser?.uid.toString(),ownername,email,phoneNumber)
+                        FirebaseDB().writeNewOwner(owner)
 
                     } else {
                         Toast.makeText(

@@ -20,14 +20,14 @@ class OwnerMainActivity : AppCompatActivity() {
     private lateinit var expiryUserList: ArrayList<User>
     lateinit var binding : ActivityOwnerMainBinding
     private lateinit var dbref: DatabaseReference
-
+    val uid=Firebase.auth.currentUser!!.uid
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityOwnerMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         binding.rentalUserList.layoutManager =
-            LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
+            LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
         binding.rentalUserList.setHasFixedSize(true)
 
 
@@ -36,7 +36,7 @@ class OwnerMainActivity : AppCompatActivity() {
         expiryUserList = arrayListOf()
         getUsersData()
 
-
+        getCafeInfo()
 
 
 
@@ -48,30 +48,50 @@ class OwnerMainActivity : AppCompatActivity() {
             startActivity(Intent(this, OwnerMenuActivity::class.java))
         }
         //내 카페 설정
-        binding.OwnerMainViewMycafeCv.setOnClickListener {
+        binding.OwnerMainViewCafeSettingCv.setOnClickListener {
             startActivity(Intent(this,SettingCafeActivity::class.java))
+
         }
 
-
+        //qr
         binding.OwnerMainViewQrcodeIb.setOnClickListener{
             startActivity(Intent(this,OwnerPermitServiceActivity::class.java))
         }
 
         // cafeadpater와 연결
         val cafeAdapter = MyCafeAdapterClass(this)
-        binding.OwnerMainViewMycafeVp.adapter=cafeAdapter
+        binding.OwnerMainViewCafePhotoVp.adapter=cafeAdapter
 
         // indicator 생성
-        val indicator = binding.OwnerMainViewMycafeDotsindicatorDi
-        indicator.setViewPager2(binding.OwnerMainViewMycafeVp)
+        val indicator = binding.OwnerMainViewCafePhotoIndicatorDi
+        indicator.setViewPager2(binding.OwnerMainViewCafePhotoVp)
 
     }
+    private fun getCafeInfo(){
+
+        dbref = FirebaseDatabase.getInstance().getReference("cafe").child(uid)
+        dbref.get().addOnSuccessListener {
+            val cafe= it.getValue<Cafe>()!!
+            binding.OwnerMainViewCafeNameTv.text=cafe.cafeName
+            if(cafe.totalTumbler!=null&&cafe.rentalTumbler!=null){
+                val tumbler=cafe.totalTumbler!!.toInt()-cafe.rentalTumbler!!.toInt()
+
+                binding.OwnerMainViewCafeTumblerCountTv.setText("현재 ${tumbler}개의 텀블러를 대여중입니다.")
+                binding.OwnerMainViewRentalUsersTumblerCountTv.setText("현재 ${cafe.rentalTumbler}개의 텀블러가 대여중입니다.")
+            }
+
+        }
+
+
+    }
+
     private fun getUsersData() {
-        val uid=Firebase.auth.currentUser!!.uid
+
         dbref = FirebaseDatabase.getInstance().getReference("cafe").child(uid).child("rentalUsers")
 
         dbref.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
+                rentalUserList= arrayListOf()
                 if (snapshot.exists()) {
                     val userDBRef = FirebaseDatabase.getInstance().getReference("users").get()
                     userDBRef.addOnSuccessListener {
