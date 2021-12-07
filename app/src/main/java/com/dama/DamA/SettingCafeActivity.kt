@@ -1,5 +1,6 @@
 package com.dama.DamA
 
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -10,15 +11,22 @@ import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.ktx.database
 import com.google.firebase.database.ktx.getValue
 import com.google.firebase.ktx.Firebase
+import com.google.firebase.storage.FirebaseStorage
+import com.google.firebase.storage.StorageReference
+import com.google.firebase.storage.ktx.storage
+import java.io.File
 
 
 class SettingCafeActivity : AppCompatActivity() {
 
+    private lateinit var storage: FirebaseStorage
     private lateinit var viewPager2: ViewPager2
     private lateinit var binding: ActivitySettingCafeBinding
     private lateinit var database: DatabaseReference
+
     override fun onCreate(savedInstanceState: Bundle?) {
         database = Firebase.database.reference
+        storage = Firebase.storage
 
         super.onCreate(savedInstanceState)
         binding = ActivitySettingCafeBinding.inflate(layoutInflater)
@@ -78,5 +86,7 @@ class SettingCafeActivity : AppCompatActivity() {
             cafe_tumbler.text.toString())
             FirebaseDB().writeCafeSetting(cafe)
         }
+
+
     }
 }

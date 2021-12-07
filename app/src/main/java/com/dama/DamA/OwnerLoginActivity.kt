@@ -59,6 +59,7 @@ class OwnerLoginActivity : AppCompatActivity() {
 
         //비밀번호 찾기
         binding.OwnerLoginViewSerachPasswordTv.setOnClickListener {
+            startActivity(Intent(this, ResetPasswordActivity::class.java))
 
         }
 

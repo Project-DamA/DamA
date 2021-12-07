@@ -40,6 +40,7 @@ apply plugin: 'com.google.gms.google-services'
 dependencies {
     // Import the Firebase BoM
     implementation platform('com.google.firebase:firebase-bom:29.0.0')
+    implementation 'com.google.firebase:firebase-storage-ktx'
 
 
     // Add the dependency for the Firebase SDK for Google Analytics

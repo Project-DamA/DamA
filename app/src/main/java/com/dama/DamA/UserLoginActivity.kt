@@ -65,7 +65,7 @@ class UserLoginActivity : AppCompatActivity() {
 
         //비밀번호 찾기
         binding.UserLoginViewSerachPasswordTv.setOnClickListener {
-
+            startActivity(Intent(this, ResetPasswordActivity::class.java))
         }
     }
 
