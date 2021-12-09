@@ -321,9 +321,14 @@
                 android:id="@+id/SettingCafeView_toolbar_tb"
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
-                app:layout_collapseMode="parallax" />
+                app:layout_collapseMode="parallax" >
+            </androidx.appcompat.widget.Toolbar>
 
-
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="45dp"
+                android:layout_height="40dp"
+                app:srcCompat="@drawable/ic_add_photo" />
             <com.tbuonomo.viewpagerdotsindicator.WormDotsIndicator
                 android:id="@+id/SettingCafeView_indicator_di"
                 android:layout_width="wrap_content"

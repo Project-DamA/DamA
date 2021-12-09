@@ -10,6 +10,7 @@ import android.util.Log.e
 import android.view.View
 import androidx.annotation.RequiresApi
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.viewpager2.widget.ViewPager2
 import com.dama.DamA.databinding.ActivityUserMainBinding
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.database.*
@@ -37,9 +38,9 @@ class UserMainActivity : AppCompatActivity() {
         binding = ActivityUserMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        binding.CafeList.layoutManager =
-            LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
-        binding.CafeList.setHasFixedSize(true)
+//        binding.CafeList.layoutManager =
+//            LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
+//        binding.CafeList.setHasFixedSize(true)
 
         arrayList = arrayListOf()
         getCafeData()
@@ -116,8 +117,11 @@ class UserMainActivity : AppCompatActivity() {
 
 
                 }
-                cafeListAdapter = CafeListAdapter(this@UserMainActivity, arrayList)
-                binding.CafeList.adapter = cafeListAdapter
+//                cafeListAdapter = CafeListAdapter(this@UserMainActivity, arrayList)
+//                binding.CafeList.adapter = cafeListAdapter
+                binding.CafeList.adapter = CafeListAdapter(this@UserMainActivity,arrayList)
+                // ViewPager의 Paging 방향은 Horizontal
+                binding.CafeList.orientation = ViewPager2.ORIENTATION_HORIZONTAL
 
             }
 

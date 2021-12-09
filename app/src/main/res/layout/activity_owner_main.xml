@@ -204,29 +204,16 @@
                             android:layout_height="wrap_content">
 
 
-                            <FrameLayout
+                            <androidx.viewpager2.widget.ViewPager2
                                 android:id="@+id/rentalUserList"
                                 android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
+                                android:layout_height="match_parent"
                                 app:layout_constraintBottom_toBottomOf="parent"
                                 app:layout_constraintEnd_toEndOf="parent"
                                 app:layout_constraintHorizontal_bias="0.0"
                                 app:layout_constraintStart_toStartOf="parent"
                                 app:layout_constraintTop_toTopOf="parent"
-                                tools:listitem="@layout/fragment_usercard_rental" />
-
-                            <!--                            <androidx.recyclerview.widget.RecyclerView-->
-                            <!--                                android:id="@+id/rentalUserList"-->
-                            <!--                                android:layout_width="match_parent"-->
-                            <!--                                android:layout_height="match_parent"-->
-                            <!--                                app:layout_constraintBottom_toBottomOf="parent"-->
-                            <!--                                app:layout_constraintEnd_toEndOf="parent"-->
-                            <!--                                app:layout_constraintHorizontal_bias="0.0"-->
-                            <!--                                app:layout_constraintStart_toStartOf="parent"-->
-                            <!--                                app:layout_constraintTop_toTopOf="parent"-->
-                            <!--                                tools:listitem="@layout/fragment_usercard_rental">-->
-                            <!--                            </androidx.recyclerview.widget.RecyclerView>-->
-
+                                tools:listitem="@layout/fragment_usercard_rental"/>
                         </androidx.constraintlayout.widget.ConstraintLayout>
 
                     </androidx.cardview.widget.CardView>
