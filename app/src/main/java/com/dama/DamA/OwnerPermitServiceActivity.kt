@@ -31,7 +31,6 @@ class OwnerPermitServiceActivity : AppCompatActivity() {
             getUserData("rental")
         }
         binding.OwnerPermitServiceReturnBtn.setOnClickListener {
-
             getUserData("return")
         }
 
@@ -64,7 +63,6 @@ class OwnerPermitServiceActivity : AppCompatActivity() {
                         }
                     }
                 }
-
 
             }
 

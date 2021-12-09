@@ -4,9 +4,6 @@ package com.dama.DamA
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
-import android.view.View
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.dama.DamA.databinding.ActivityOwnerMainBinding
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.database.*
@@ -21,19 +18,24 @@ class OwnerMainActivity : AppCompatActivity() {
     lateinit var binding : ActivityOwnerMainBinding
     private lateinit var dbref: DatabaseReference
     val uid=Firebase.auth.currentUser!!.uid
+    private val manager = supportFragmentManager
+    val transaction = manager.beginTransaction()
     override fun onCreate(savedInstanceState: Bundle?) {
+
         super.onCreate(savedInstanceState)
         binding = ActivityOwnerMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        binding.rentalUserList.layoutManager =
-            LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
-        binding.rentalUserList.setHasFixedSize(true)
-
+//        binding.rentalUserList.layoutManager =
+//            LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
+//        binding.rentalUserList.setHasFixedSize(true)
 
 
         rentalUserList = arrayListOf()
         expiryUserList = arrayListOf()
+
+        transaction.add(R.id.rentalUserList,UserCardVIewPagerFragment(rentalUserList))
+
         getUsersData()
 
         getCafeInfo()
@@ -101,8 +103,12 @@ class OwnerMainActivity : AppCompatActivity() {
 
 
                         }
-                        userCardRentalAdapter = UserCardRentalAdapter(rentalUserList)
-                        binding.rentalUserList.adapter = userCardRentalAdapter
+
+                        ///////
+
+                        transaction.replace(R.id.rentalUserList, UserCardVIewPagerFragment(rentalUserList))
+//        transaction.addToBackStack(null)
+                        transaction.commit()
 
                     }
                 }

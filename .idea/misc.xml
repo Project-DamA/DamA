@@ -57,30 +57,27 @@
         <entry key="..\:/App(Kotlin)/DamA/app/src/main/res/layout/activity_login.xml" value="0.16096491228070176" />
         <entry key="..\:/App(Kotlin)/DamA/app/src/main/res/layout/activity_owner_join.xml" value="0.30833333333333335" />
         <entry key="..\:/App(Kotlin)/DamA/app/src/main/res/layout/activity_owner_login.xml" value="0.25" />
-        <entry key="..\:/App(Kotlin)/DamA/app/src/main/res/layout/activity_owner_main.xml" value="0.1512433754586221" />
+        <entry key="..\:/App(Kotlin)/DamA/app/src/main/res/layout/activity_owner_main.xml" value="0.25" />
         <entry key="..\:/App(Kotlin)/DamA/app/src/main/res/layout/activity_owner_menu.xml" value="0.218859649122807" />
         <entry key="..\:/App(Kotlin)/DamA/app/src/main/res/layout/activity_owner_permit_service.xml" value="0.218859649122807" />
         <entry key="..\:/App(Kotlin)/DamA/app/src/main/res/layout/activity_setting_cafe.xml" value="0.16096491228070176" />
         <entry key="..\:/App(Kotlin)/DamA/app/src/main/res/layout/activity_setting_cafe_bottom.xml" value="0.22" />
         <entry key="..\:/App(Kotlin)/DamA/app/src/main/res/layout/activity_setting_cafe_top.xml" value="0.33" />
+        <entry key="..\:/App(Kotlin)/DamA/app/src/main/res/layout/activity_test_image.xml" value="0.24219910846953938" />
         <entry key="..\:/App(Kotlin)/DamA/app/src/main/res/layout/activity_user_join.xml" value="0.16096491228070176" />
         <entry key="..\:/App(Kotlin)/DamA/app/src/main/res/layout/activity_user_login.xml" value="0.33" />
         <entry key="..\:/App(Kotlin)/DamA/app/src/main/res/layout/activity_user_main.xml" value="0.26903835464146747" />
         <entry key="..\:/App(Kotlin)/DamA/app/src/main/res/layout/activity_user_menu.xml" value="0.1723684210526316" />
         <entry key="..\:/App(Kotlin)/DamA/app/src/main/res/layout/activity_user_searchview.xml" value="0.1" />
         <entry key="..\:/App(Kotlin)/DamA/app/src/main/res/layout/content_scrolling.xml" value="0.2884963768115942" />
+        <entry key="..\:/App(Kotlin)/DamA/app/src/main/res/layout/fragment_cafe_image.xml" value="0.307518115942029" />
         <entry key="..\:/App(Kotlin)/DamA/app/src/main/res/layout/fragment_cafe_list.xml" value="0.21228070175438596" />
+        <entry key="..\:/App(Kotlin)/DamA/app/src/main/res/layout/fragment_gallery.xml" value="0.3029891304347826" />
         <entry key="..\:/App(Kotlin)/DamA/app/src/main/res/layout/fragment_permit_service.xml" value="0.30833333333333335" />
         <entry key="..\:/App(Kotlin)/DamA/app/src/main/res/layout/fragment_usercard_rental.xml" value="0.18070175438596492" />
+        <entry key="..\:/App(Kotlin)/DamA/app/src/main/res/layout/fragment_viewpager.xml" value="0.21228070175438596" />
         <entry key="..\:/Users/user1/Desktop/DamA/app/src/main/res/layout/activity_detail_cafe.xml" value="0.4941123188405797" />
-        <entry key="..\:/Users/user1/Desktop/DamA/app/src/main/res/layout/activity_owner_login.xml" value="0.5027173913043478" />
         <entry key="..\:/Users/user1/Desktop/DamA/app/src/main/res/layout/activity_owner_main.xml" value="0.4941123188405797" />
-        <entry key="..\:/Users/user1/Desktop/DamA/app/src/main/res/layout/activity_owner_menu.xml" value="0.5045289855072463" />
-        <entry key="..\:/Users/user1/Desktop/DamA/app/src/main/res/layout/activity_reset_password.xml" value="0.5536458333333333" />
-        <entry key="..\:/Users/user1/Desktop/DamA/app/src/main/res/layout/activity_setting_cafe.xml" value="0.5536458333333333" />
-        <entry key="..\:/Users/user1/Desktop/DamA/app/src/main/res/layout/activity_user_join.xml" value="0.5536458333333333" />
-        <entry key="..\:/Users/user1/Desktop/DamA/app/src/main/res/layout/activity_user_login.xml" value="0.5536458333333333" />
-        <entry key="..\:/Users/user1/Desktop/DamA/app/src/main/res/layout/activity_user_searchview.xml" value="0.5027173913043478" />
       </map>
     </option>
   </component>
