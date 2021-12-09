@@ -67,7 +67,7 @@ class UserMainActivity : AppCompatActivity() {
         }
 
         //카페 정보
-        binding.UserMainViewUsingCV.setOnClickListener {
+        binding.UserMainViewModifyBtn.setOnClickListener {
             var i = Intent(this, DetailCafeActivity::class.java)
             startActivity(i)
         }

@@ -50,7 +50,7 @@ class OwnerMainActivity : AppCompatActivity() {
             startActivity(Intent(this, OwnerMenuActivity::class.java))
         }
         //내 카페 설정
-        binding.OwnerMainViewCafeSettingCv.setOnClickListener {
+        binding.OwnerMainViewMycafemodifyIb.setOnClickListener {
             startActivity(Intent(this,SettingCafeActivity::class.java))
 
         }

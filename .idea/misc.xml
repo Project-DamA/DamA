@@ -78,6 +78,16 @@
         <entry key="..\:/App(Kotlin)/DamA/app/src/main/res/layout/fragment_viewpager.xml" value="0.21228070175438596" />
         <entry key="..\:/Users/user1/Desktop/DamA/app/src/main/res/layout/activity_detail_cafe.xml" value="0.4941123188405797" />
         <entry key="..\:/Users/user1/Desktop/DamA/app/src/main/res/layout/activity_owner_main.xml" value="0.4941123188405797" />
+<<<<<<< Updated upstream
+=======
+        <entry key="..\:/Users/user1/Desktop/DamA/app/src/main/res/layout/activity_owner_menu.xml" value="0.5045289855072463" />
+        <entry key="..\:/Users/user1/Desktop/DamA/app/src/main/res/layout/activity_reset_password.xml" value="0.5536458333333333" />
+        <entry key="..\:/Users/user1/Desktop/DamA/app/src/main/res/layout/activity_setting_cafe.xml" value="0.5536458333333333" />
+        <entry key="..\:/Users/user1/Desktop/DamA/app/src/main/res/layout/activity_user_join.xml" value="0.5536458333333333" />
+        <entry key="..\:/Users/user1/Desktop/DamA/app/src/main/res/layout/activity_user_login.xml" value="0.5536458333333333" />
+        <entry key="..\:/Users/user1/Desktop/DamA/app/src/main/res/layout/activity_user_main.xml" value="0.5009057971014492" />
+        <entry key="..\:/Users/user1/Desktop/DamA/app/src/main/res/layout/activity_user_searchview.xml" value="0.5027173913043478" />
+>>>>>>> Stashed changes
       </map>
     </option>
   </component>
