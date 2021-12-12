@@ -1,6 +1,8 @@
 package com.dama.DamA
 
 import android.graphics.Color
+import android.media.Image
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -18,10 +20,10 @@ import com.google.firebase.ktx.Firebase
 
 class DetailCafeActivity : AppCompatActivity() {
 
-    private lateinit var viewPager2: ViewPager2
     private lateinit var binding: ActivityDetailCafeBinding
     private lateinit var database: DatabaseReference
     private lateinit var requestType: String
+    private lateinit var cafeImageList:ArrayList<Uri>
     override fun onCreate(savedInstanceState: Bundle?) {
 
         requestType = ""
@@ -36,9 +38,8 @@ class DetailCafeActivity : AppCompatActivity() {
             setDisplayShowHomeEnabled(true)
         }
 
-        viewPager2 = findViewById(R.id.DetailCafeView_viewPager_vp)
 
-        viewPager2.adapter = ViewPagerAdapterClass(this)
+        binding.DetailCafeViewViewPagerVp.adapter = ImageListAdapter(cafeImageList,this)
 
         val indicator = binding.DetailCafeViewIndicatorDi
         indicator.setViewPager2(binding.DetailCafeViewViewPagerVp)
