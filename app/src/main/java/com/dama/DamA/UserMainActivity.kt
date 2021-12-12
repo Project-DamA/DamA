@@ -2,6 +2,7 @@ package com.dama.DamA
 
 
 import android.content.Intent
+import android.net.Uri
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -16,6 +17,7 @@ import com.google.firebase.auth.ktx.auth
 import com.google.firebase.database.*
 import com.google.firebase.database.ktx.getValue
 import com.google.firebase.ktx.Firebase
+import com.google.firebase.storage.ktx.storage
 import java.time.Duration
 import java.time.LocalDate
 import java.time.LocalDateTime
@@ -30,7 +32,7 @@ class UserMainActivity : AppCompatActivity() {
     lateinit var binding: ActivityUserMainBinding
     private lateinit var arrayList: ArrayList<Cafe>
     private lateinit var dbref: DatabaseReference
-    private lateinit var cafeListAdapter: CafeListAdapter
+    private lateinit var cafeImageList:ArrayList<Uri>
 
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -38,9 +40,6 @@ class UserMainActivity : AppCompatActivity() {
         binding = ActivityUserMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-//        binding.CafeList.layoutManager =
-//            LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
-//        binding.CafeList.setHasFixedSize(true)
 
         arrayList = arrayListOf()
         getCafeData()
@@ -70,16 +69,10 @@ class UserMainActivity : AppCompatActivity() {
         //카페 정보
         binding.UserMainViewModifyBtn.setOnClickListener {
             var i = Intent(this, DetailCafeActivity::class.java)
+            i.putExtra("cafeImageList",cafeImageList)
             startActivity(i)
         }
-
-        // cafeadpater와 연결
-        val cafeAdapter = UserCafeAdapterClass(this)
-        binding.UserMainViewViewpagerVp.adapter = cafeAdapter
-
-        // indicator 생성
-        val indicator = binding.UserMainViewIndicatorDi
-        indicator.setViewPager2(binding.UserMainViewViewpagerVp)
+        getImagesViewpager("Uoro2PfTmdUD41x7lVr0Ba0Ocp93")
 
     }
 
@@ -138,5 +131,21 @@ class UserMainActivity : AppCompatActivity() {
         val i = Intent(this@UserMainActivity, DetailCafeActivity::class.java)
         i.putExtra("ownerUid", uid)
         startActivity(i)
+    }
+
+    private fun getImagesViewpager(uid:String) {
+        Firebase.storage.reference.child("cafe_images").child(uid).listAll().addOnSuccessListener { itemsList ->
+            itemsList.items.forEach { item ->
+                item.downloadUrl.addOnSuccessListener { cafeImageList.add(it)
+                    binding.UserMainViewViewpagerVp.adapter=ImageListAdapter(cafeImageList,this)
+                    binding.UserMainViewViewpagerVp.orientation=ViewPager2.ORIENTATION_HORIZONTAL
+
+                    // indicator 생성
+                    val indicator = binding.UserMainViewIndicatorDi
+                    indicator.setViewPager2(binding.UserMainViewViewpagerVp)
+                }
+            }
+
+        }
     }
 }
