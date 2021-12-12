@@ -2,20 +2,28 @@ package com.dama.DamA
 
 
 import android.content.Intent
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
 import androidx.viewpager2.widget.ViewPager2
+import com.bumptech.glide.Glide
 import com.dama.DamA.databinding.ActivityOwnerMainBinding
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.database.*
 import com.google.firebase.database.ktx.getValue
 import com.google.firebase.ktx.Firebase
+import com.google.firebase.storage.FirebaseStorage
+import com.google.firebase.storage.ktx.storage
+import java.text.SimpleDateFormat
+import java.util.*
+import kotlin.collections.ArrayList
 
 
 class OwnerMainActivity : AppCompatActivity() {
-    lateinit var userCardRentalAdapter: UserCardRentalAdapter
     private lateinit var rentalUserList: ArrayList<User>
     private lateinit var expiryUserList: ArrayList<User>
+    private lateinit var cafeImageList: ArrayList<Uri>
     lateinit var binding : ActivityOwnerMainBinding
     private lateinit var dbref: DatabaseReference
     val uid=Firebase.auth.currentUser!!.uid
@@ -26,12 +34,11 @@ class OwnerMainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
 
-
+        cafeImageList= arrayListOf()
         rentalUserList = arrayListOf()
         expiryUserList = arrayListOf()
-
+        getImagesViewpager()
         getUsersData()
-
         getCafeInfo()
 
 
@@ -45,7 +52,10 @@ class OwnerMainActivity : AppCompatActivity() {
         }
         //내 카페 설정
         binding.OwnerMainViewMycafemodifyIb.setOnClickListener {
-            startActivity(Intent(this,SettingCafeActivity::class.java))
+            val i=Intent(this,SettingCafeActivity::class.java)
+            i.putExtra("addImageList", arrayListOf<Uri>())
+            i.putExtra("cafeImageList",cafeImageList)
+            startActivity(i)
 
         }
 
@@ -54,13 +64,6 @@ class OwnerMainActivity : AppCompatActivity() {
             startActivity(Intent(this,OwnerPermitServiceActivity::class.java))
         }
 
-        // cafeadpater와 연결
-        val cafeAdapter = MyCafeAdapterClass(this)
-        binding.OwnerMainViewCafePhotoVp.adapter=cafeAdapter
-
-        // indicator 생성
-        val indicator = binding.OwnerMainViewCafePhotoIndicatorDi
-        indicator.setViewPager2(binding.OwnerMainViewCafePhotoVp)
 
     }
     private fun getCafeInfo(){
@@ -117,4 +120,22 @@ class OwnerMainActivity : AppCompatActivity() {
         })
 
     }
+
+    private fun getImagesViewpager() {
+        Firebase.storage.reference.child("cafe_images").child(uid).listAll().addOnSuccessListener { itemsList ->
+            itemsList.items.forEach { item ->
+                item.downloadUrl.addOnSuccessListener { cafeImageList.add(it)
+                    binding.OwnerMainViewCafePhotoVp.adapter=ImageListAdapter(cafeImageList,this)
+                    binding.OwnerMainViewCafePhotoVp.orientation=ViewPager2.ORIENTATION_HORIZONTAL
+
+                    // indicator 생성
+                    val indicator = binding.OwnerMainViewCafePhotoIndicatorDi
+                    indicator.setViewPager2(binding.OwnerMainViewCafePhotoVp)
+                }
+            }
+
+        }
+    }
+
+
 }

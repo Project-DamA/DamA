@@ -4,6 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
 
 
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -302,12 +303,30 @@
 
         <com.google.android.material.appbar.CollapsingToolbarLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="200dp"
             app:contentScrim="@android:color/transparent"
             app:layout_scrollFlags="scroll|enterAlways"
             app:layout_scrollInterpolator="@android:anim/decelerate_interpolator"
             app:toolbarId="@+id/DetailCafeViewTop_toolbar_tb">
             <!--            app:layout_scrollFlags="scroll|enterAlways|enterAlwaysCollapsed"-->
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/SettingCAfeView_noImage_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="127dp"
+                    android:layout_marginTop="90dp"
+                    android:layout_marginEnd="127dp"
+                    android:text="이미지를 추가해주세요."
+                    android:visibility="gone"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
             <androidx.viewpager2.widget.ViewPager2
                 android:id="@+id/SettingCafeView_viewPager_vp"
@@ -326,8 +345,8 @@
 
             <ImageView
                 android:id="@+id/imageView"
-                android:layout_width="45dp"
-                android:layout_height="40dp"
+                android:layout_width="86dp"
+                android:layout_height="84dp"
                 app:srcCompat="@drawable/ic_add_photo" />
             <com.tbuonomo.viewpagerdotsindicator.WormDotsIndicator
                 android:id="@+id/SettingCafeView_indicator_di"
