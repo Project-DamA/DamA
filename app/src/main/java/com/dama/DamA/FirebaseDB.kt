@@ -89,7 +89,9 @@ class FirebaseDB {
         val newUser=User(user.uid,user.username,user.email,user.phoneNumber,null,null)
         database.child("users").child(user.uid.toString()).setValue(newUser)
         //cafe에 유저 uid 삭제
-        database.child("cafe").child(ownerUid).child("rentalUsers").child(user.uid!!).removeValue()
+        database.child("cafe").child(ownerUid).child("rentalUsers").removeValue()
+        database.child("cafe").child(ownerUid).child("rentalTime").removeValue()
+
         subCafeRentalTumbler()
     }
 

@@ -6,11 +6,8 @@ import android.net.Uri
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
-import android.util.Log.e
 import android.view.View
 import androidx.annotation.RequiresApi
-import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.viewpager2.widget.ViewPager2
 import com.dama.DamA.databinding.ActivityUserMainBinding
 import com.google.firebase.auth.ktx.auth
@@ -18,11 +15,6 @@ import com.google.firebase.database.*
 import com.google.firebase.database.ktx.getValue
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.ktx.storage
-import java.time.Duration
-import java.time.LocalDate
-import java.time.LocalDateTime
-import java.time.format.DateTimeFormatter
-import java.time.temporal.ChronoUnit
 import java.util.*
 import kotlin.collections.ArrayList
 
@@ -30,9 +22,10 @@ import kotlin.collections.ArrayList
 class UserMainActivity : AppCompatActivity() {
 
     lateinit var binding: ActivityUserMainBinding
-    private lateinit var arrayList: ArrayList<Cafe>
+    private lateinit var cafeList: ArrayList<Cafe>
     private lateinit var dbref: DatabaseReference
-    private lateinit var cafeImageList:ArrayList<Uri>
+    private lateinit var cafeImageList: ArrayList<Uri>
+    private lateinit var cafeOwnerUid: String
 
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -40,10 +33,12 @@ class UserMainActivity : AppCompatActivity() {
         binding = ActivityUserMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-
-        arrayList = arrayListOf()
-        getCafeData()
+        cafeOwnerUid=""
+        cafeList = arrayListOf()
+        cafeImageList = arrayListOf()
         getUserData()
+        getCafeData()
+
         val rentalTimeString = intent.getStringExtra("userRentalTime")
         if (rentalTimeString == null) {
             binding.UserMainViewViewpagerVp.visibility = View.INVISIBLE
@@ -66,13 +61,6 @@ class UserMainActivity : AppCompatActivity() {
             startActivity(Intent(this, UserMenuActivity::class.java))
         }
 
-        //카페 정보
-        binding.UserMainViewModifyBtn.setOnClickListener {
-            var i = Intent(this, DetailCafeActivity::class.java)
-            i.putExtra("cafeImageList",cafeImageList)
-            startActivity(i)
-        }
-        getImagesViewpager("Uoro2PfTmdUD41x7lVr0Ba0Ocp93")
 
     }
 
@@ -84,11 +72,18 @@ class UserMainActivity : AppCompatActivity() {
 
 
                 val user = snapshot.getValue<User>()
-                if (user!!.rentalTime != null) {
-                    binding.UserMainViewNameTv
+
+                if (user!!.rentalCafe != null) {
+
+                    binding.UserMainViewDetailBtn.setOnClickListener {
+                        val i=Intent(parent, DetailCafeActivity::class.java)
+                        i.putExtra("ownerUid",user.rentalCafe)
+                        startActivity(i)
+                    }
+
+                    cafeOwnerUid=user.rentalCafe.toString()
+                    getImagesViewpager(cafeOwnerUid)
                 }
-
-
             }
 
             override fun onCancelled(error: DatabaseError) {
@@ -106,14 +101,13 @@ class UserMainActivity : AppCompatActivity() {
                 for (cafeSnapshot in snapshot.children) {
 
                     val cafe = cafeSnapshot.getValue<Cafe>()
-                    arrayList.add(cafe!!)
-
+                    cafeList.add(cafe!!)
+                    if(cafe.ownerUid==cafeOwnerUid){
+                        binding.UserMainViewNameTv.text=cafe.cafeName
+                    }
 
                 }
-//                cafeListAdapter = CafeListAdapter(this@UserMainActivity, arrayList)
-//                binding.CafeList.adapter = cafeListAdapter
-                binding.CafeList.adapter = CafeListAdapter(this@UserMainActivity,arrayList)
-                // ViewPager의 Paging 방향은 Horizontal
+                binding.CafeList.adapter = CafeListAdapter(this@UserMainActivity, cafeList)
                 binding.CafeList.orientation = ViewPager2.ORIENTATION_HORIZONTAL
 
             }
@@ -133,19 +127,23 @@ class UserMainActivity : AppCompatActivity() {
         startActivity(i)
     }
 
-    private fun getImagesViewpager(uid:String) {
-        Firebase.storage.reference.child("cafe_images").child(uid).listAll().addOnSuccessListener { itemsList ->
-            itemsList.items.forEach { item ->
-                item.downloadUrl.addOnSuccessListener { cafeImageList.add(it)
-                    binding.UserMainViewViewpagerVp.adapter=ImageListAdapter(cafeImageList,this)
-                    binding.UserMainViewViewpagerVp.orientation=ViewPager2.ORIENTATION_HORIZONTAL
+    private fun getImagesViewpager(uid: String) {
+        Firebase.storage.reference.child("cafe_images").child(uid).listAll()
+            .addOnSuccessListener { itemsList ->
+                itemsList.items.forEach { item ->
+                    item.downloadUrl.addOnSuccessListener {
+                        cafeImageList.add(it)
+                        binding.UserMainViewViewpagerVp.adapter =
+                            ImageListAdapter(cafeImageList, this)
+                        binding.UserMainViewViewpagerVp.orientation =
+                            ViewPager2.ORIENTATION_HORIZONTAL
 
-                    // indicator 생성
-                    val indicator = binding.UserMainViewIndicatorDi
-                    indicator.setViewPager2(binding.UserMainViewViewpagerVp)
+                        // indicator 생성
+                        val indicator = binding.UserMainViewIndicatorDi
+                        indicator.setViewPager2(binding.UserMainViewViewpagerVp)
+                    }
                 }
-            }
 
-        }
+            }
     }
 }

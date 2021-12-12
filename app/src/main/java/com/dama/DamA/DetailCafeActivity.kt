@@ -16,6 +16,7 @@ import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.ktx.database
 import com.google.firebase.database.ktx.getValue
 import com.google.firebase.ktx.Firebase
+import com.google.firebase.storage.ktx.storage
 
 
 class DetailCafeActivity : AppCompatActivity() {
@@ -39,10 +40,6 @@ class DetailCafeActivity : AppCompatActivity() {
         }
 
 
-        binding.DetailCafeViewViewPagerVp.adapter = ImageListAdapter(cafeImageList,this)
-
-        val indicator = binding.DetailCafeViewIndicatorDi
-        indicator.setViewPager2(binding.DetailCafeViewViewPagerVp)
 
 
 
@@ -57,6 +54,10 @@ class DetailCafeActivity : AppCompatActivity() {
         var cafe_tumbler = binding.DetailCafeViewRentalTumblerTv
         var cafe_uid = ""
         val ownerUid = intent.getStringExtra("ownerUid").toString()
+
+
+        cafeImageList= arrayListOf()
+        getImagesViewpager(ownerUid)
         database.child("cafe").child(ownerUid).get().addOnSuccessListener {
             Log.i("firebase", "Got value ${it.value}")
             if (it.exists()) {
@@ -146,5 +147,21 @@ class DetailCafeActivity : AppCompatActivity() {
 
 
         Log.d("requestType", requestType)
+    }
+    private fun getImagesViewpager(uid:String) {
+        Firebase.storage.reference.child("cafe_images").child(uid).listAll().addOnSuccessListener { itemsList ->
+            itemsList.items.forEach { item ->
+                item.downloadUrl.addOnSuccessListener {
+                    cafeImageList.add(it)
+                    binding.DetailCafeViewViewPagerVp.adapter=ImageListAdapter(cafeImageList,this)
+                    binding.DetailCafeViewViewPagerVp.orientation=ViewPager2.ORIENTATION_HORIZONTAL
+
+                    // indicator 생성
+                    val indicator = binding.DetailCafeViewIndicatorDi
+                    indicator.setViewPager2(binding.DetailCafeViewViewPagerVp)
+                }
+            }
+
+        }
     }
 }

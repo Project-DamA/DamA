@@ -310,7 +310,7 @@
             <androidx.viewpager2.widget.ViewPager2
                 android:id="@+id/DetailCafeView_viewPager_vp"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="200dp"
                 android:fitsSystemWindows="true"
                 android:scaleType="centerCrop"
                 app:layout_collapseMode="parallax" />

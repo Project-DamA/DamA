@@ -75,8 +75,8 @@ class OwnerMainActivity : AppCompatActivity() {
             if(cafe.totalTumbler!=null&&cafe.rentalTumbler!=null){
                 val tumbler= cafe.totalTumbler.toInt()- cafe.rentalTumbler.toInt()
 
-                binding.OwnerMainViewCafeTumblerCountTv.text = "현재 ${tumbler}개의 텀블러를 대여중입니다."
-                binding.OwnerMainViewRentalUsersTumblerCountTv.text = "현재 ${cafe.rentalTumbler}개의 텀블러가 대여중입니다."
+                binding.OwnerMainViewCafeTumblerCountTv.text = "현재 보유중인 텀블러 : ${tumbler}개"
+                binding.OwnerMainViewRentalUsersTumblerCountTv.text = "현재 대여중인 텀블러 : ${cafe.rentalTumbler}개"
             }
 
         }
