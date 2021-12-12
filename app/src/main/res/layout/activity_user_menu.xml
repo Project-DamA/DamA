@@ -4,13 +4,20 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <TextView
+        android:id="@+id/background_color_tv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/background"
+        />
+
     <ImageButton
         android:id="@+id/UserMenuView_close_ib"
         android:layout_width="30dp"
         android:layout_height="30dp"
         android:src="@drawable/previous_move"
         android:scaleType="centerCrop"
-        android:background="@color/white"
+        android:background="@color/background"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         android:layout_marginTop="20dp"

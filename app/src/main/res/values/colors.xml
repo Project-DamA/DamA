@@ -11,4 +11,6 @@
     <color name="mainColor">#9FACFF</color>
     <color name="subColor">#5DD1F4</color>
     <color name="whitegray">#E7E3E3</color>
+    <color name="background">#EDF5F7</color>
+    <color name="shadowcolor">#EDF5F7</color>
 </resources>

@@ -6,6 +6,13 @@
     android:layout_height="match_parent"
     tools:context=".UserLoginActivity">
 
+    <TextView
+        android:id="@+id/background_color_tv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/background"
+        />
+
 
     <View
         android:id="@+id/OwnerLoginView_backRectangle_view"
