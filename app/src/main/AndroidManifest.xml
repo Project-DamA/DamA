@@ -16,9 +16,6 @@
         android:theme="@style/Theme.AppCompat.Light.NoActionBar"
         android:usesCleartextTraffic="true">
         <activity
-            android:name=".TestImageActivity"
-            android:exported="false" />
-        <activity
             android:name=".OwnerPermitServiceActivity"
             android:exported="false" />
         <activity
@@ -47,10 +44,7 @@
             android:name=".SettingCafeActivity"
             android:exported="false"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
-        <activity
-            android:name=".UserSearchActivity"
-            android:exported="false"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+
         <activity
             android:name=".OwnerMainActivity"
             android:exported="false" />

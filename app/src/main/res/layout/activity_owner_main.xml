@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     tools:context=".OwnerMainActivity">
 
     <ImageView
@@ -28,55 +29,123 @@
         app:layout_constraintStart_toEndOf="@id/OwnerMainView_damalogo_iv"
         app:layout_constraintTop_toTopOf="@id/OwnerMainView_damalogo_iv" />
 
-    <ImageButton
-        android:id="@+id/OwnerMainView_more_ib"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="20dp"
-        android:background="@color/white"
-        android:scaleType="centerCrop"
-        android:src="@drawable/moreview"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/OwnerMainView_maintitle_tv" />
-
-    <ImageButton
-        android:id="@+id/OwnerMainView_notcie_ib"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:layout_marginEnd="10dp"
-        android:background="@color/white"
-        android:scaleType="centerCrop"
-        android:src="@drawable/notice"
-        app:layout_constraintEnd_toStartOf="@id/OwnerMainView_more_ib"
-        app:layout_constraintTop_toTopOf="@id/OwnerMainView_more_ib" />
-
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:layout_marginTop="8dp"
         app:layout_constraintBottom_toTopOf="@id/OwnerMainView_qrcode_ib"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/OwnerMainView_more_ib">
+        app:layout_constraintTop_toBottomOf="@+id/OwnerMainView_maintitle_tv"
+        app:layout_constraintVertical_bias="0.0">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
+
+            <View
+                android:id="@+id/ownerMainView_renTalBackGradiant_v"
+                android:layout_width="350dp"
+                android:layout_height="200dp"
+                android:layout_marginTop="50dp"
+                android:background="@drawable/login_join_btn"
+                app:layout_constraintBottom_toBottomOf="@+id/OwnerMainVIew_rentalUserList_rv"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.478"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/OwnerMainView_userBackGradiant_v"
+                app:layout_constraintVertical_bias="1.0" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/OwnerMainVIew_rentalUserList_rv"
+                android:layout_width="344dp"
+                android:layout_height="180dp"
+                android:layout_marginTop="20dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/ownerMainView_renTalBackGradiant_v"
+                app:layout_constraintHorizontal_bias="0.55"
+                app:layout_constraintStart_toStartOf="@+id/ownerMainView_renTalBackGradiant_v"
+                app:layout_constraintTop_toBottomOf="@+id/OwnerMainView_userBackGradiant_v"
+                app:layout_constraintVertical_bias="0.03"
+                tools:listitem="@layout/fragment_usercard_rental">
+
+            </androidx.recyclerview.widget.RecyclerView>
+
+            <View
+                android:id="@+id/OwnerMainView_userBackGradiant_v"
+                android:layout_width="220dp"
+                android:layout_height="314dp"
+                android:background="@drawable/join_view_half_admin"
+                app:layout_constraintBottom_toBottomOf="@+id/OwnerMainView_cafeSetting_cv"
+                app:layout_constraintEnd_toEndOf="@+id/OwnerMainView_cafeSetting_cv"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/OwnerMainView_cafeSetting_cv" />
+
+
+            <!--            <androidx.cardview.widget.CardView-->
+            <!--                android:id="@+id/OwnerMainView_myexpiry_cv"-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:backgroundTint="@color/whitegray"-->
+            <!--                android:elevation="30dp"-->
+            <!--                app:cardCornerRadius="30dp"-->
+            <!--                tools:layout_editor_absoluteY="382dp">-->
+
+            <!--                <androidx.constraintlayout.widget.ConstraintLayout-->
+            <!--                    android:layout_width="match_parent"-->
+            <!--                    android:layout_height="wrap_content">-->
+
+            <!--                    <TextView-->
+            <!--                        android:id="@+id/OwnerMainView_myexpiry_tv"-->
+            <!--                        android:layout_width="wrap_content"-->
+            <!--                        android:layout_height="wrap_content"-->
+            <!--                        android:layout_marginStart="15dp"-->
+            <!--                        android:layout_marginTop="10dp"-->
+            <!--                        android:text="내 카페 현재 반납 기간 만료 텀블러는 x개입니다."-->
+            <!--                        android:textColor="@color/black"-->
+            <!--                        app:layout_constraintStart_toStartOf="parent"-->
+            <!--                        app:layout_constraintTop_toTopOf="parent" />-->
+
+            <!--                    <androidx.recyclerview.widget.RecyclerView-->
+            <!--                        android:id="@+id/expiryUserList"-->
+            <!--                        android:layout_width="match_parent"-->
+            <!--                        android:layout_height="200dp"-->
+            <!--                        tools:layout_editor_absoluteX="0dp"-->
+            <!--                        tools:layout_editor_absoluteY="-6dp"-->
+            <!--                        tools:listitem="@layout/fragment_usercard_rental" />-->
+
+
+            <!--                </androidx.constraintlayout.widget.ConstraintLayout>-->
+
+            <!--            </androidx.cardview.widget.CardView>-->
+
+            <TextView
+                android:id="@+id/OwnerMainView_rentalUsersTumblerCount_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="내 카페 현재 대여중인 텀블러는 x개 입니다."
+                android:textColor="@color/white"
+                app:layout_constraintEnd_toEndOf="@+id/OwnerMainVIew_rentalUserList_rv"
+                app:layout_constraintStart_toStartOf="@+id/OwnerMainVIew_rentalUserList_rv"
+                app:layout_constraintTop_toTopOf="@+id/ownerMainView_renTalBackGradiant_v" />
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/OwnerMainView_cafeSetting_cv"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
-                android:layout_marginTop="15dp"
+                android:layout_marginTop="16dp"
                 android:layout_marginEnd="20dp"
-                android:backgroundTint="@color/whitegray"
+                android:backgroundTint="@color/white"
                 android:elevation="30dp"
                 app:cardCornerRadius="30dp"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
+                app:layout_constraintTop_toBottomOf="@+id/OwnerMainView_userTitle_cv">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
@@ -121,9 +190,15 @@
                         android:id="@+id/OwnerMainView_cafePhoto_vp"
                         android:layout_width="match_parent"
                         android:layout_height="200dp"
+                        android:layout_margin="10dp"
+                        android:clipChildren="false"
+                        android:clipToPadding="false"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@id/OwnerMainView_cafeName_tv" />
+                        app:layout_constraintTop_toBottomOf="@id/OwnerMainView_cafeName_tv">
+
+
+                    </androidx.viewpager2.widget.ViewPager2>
 
                     <com.tbuonomo.viewpagerdotsindicator.WormDotsIndicator
                         android:id="@+id/OwnerMainView_cafePhotoIndicator_di"
@@ -157,115 +232,54 @@
 
             </androidx.cardview.widget.CardView>
 
-            <!--            현재 대여중인 텀블러 -->
             <androidx.cardview.widget.CardView
-                android:id="@+id/OwnerMainView_rentalUsers_cv"
+                android:id="@+id/OwnerMainView_userTitle_cv"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="15dp"
-                android:layout_marginEnd="20dp"
-                android:backgroundTint="@color/whitegray"
-                android:elevation="30dp"
-                app:cardCornerRadius="30dp"
+                android:background="@color/white"
+
+                android:elevation="0dp"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/OwnerMainView_cafeSetting_cv">
+                app:layout_constraintTop_toTopOf="parent">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_height="match_parent">
 
-                    <TextView
-                        android:id="@+id/OwnerMainView_rentalUsersTumblerCount_tv"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="15dp"
-                        android:layout_marginTop="10dp"
-                        android:text="내 카페 현재 대여중인 텀블러는 x개 입니다."
-                        android:textColor="@color/black"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
-
-                    <androidx.cardview.widget.CardView
-                        android:id="@+id/OwnerMainView_rentalUsersInfo_cv"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="20dp"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginEnd="20dp"
-                        android:backgroundTint="@color/white"
-                        android:elevation="30dp"
-                        app:cardCornerRadius="30dp"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@id/OwnerMainView_rentalUsersTumblerCount_tv">
-
-                        <androidx.constraintlayout.widget.ConstraintLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content">
-
-
-                            <androidx.viewpager2.widget.ViewPager2
-                                android:id="@+id/rentalUserList"
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                app:layout_constraintBottom_toBottomOf="parent"
-                                app:layout_constraintEnd_toEndOf="parent"
-                                app:layout_constraintHorizontal_bias="0.0"
-                                app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toTopOf="parent"
-                                tools:listitem="@layout/fragment_usercard_rental"/>
-                        </androidx.constraintlayout.widget.ConstraintLayout>
-
-                    </androidx.cardview.widget.CardView>
-
-                </androidx.constraintlayout.widget.ConstraintLayout>
-
-            </androidx.cardview.widget.CardView>
-
-            <!--            기간 만료 텀블러-->
-            <androidx.cardview.widget.CardView
-                android:id="@+id/OwnerMainView_myexpiry_cv"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="15dp"
-                android:layout_marginEnd="20dp"
-                android:backgroundTint="@color/whitegray"
-                android:elevation="30dp"
-                app:cardCornerRadius="30dp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/OwnerMainView_rentalUsers_cv">
-
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <TextView
-                        android:id="@+id/OwnerMainView_myexpiry_tv"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="15dp"
-                        android:layout_marginTop="10dp"
-                        android:text="내 카페 현재 반납 기간 만료 텀블러는 x개입니다."
-                        android:textColor="@color/black"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
-
-
-                    <androidx.recyclerview.widget.RecyclerView
-                        android:id="@+id/expiryUserList"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
+                    <Button
+                        android:id="@+id/OwnerMainView_logout_btn"
+                        android:layout_width="106dp"
+                        android:layout_height="40dp"
+                        android:layout_marginEnd="24dp"
+                        android:background="@drawable/login_join_btn"
+                        android:text="로그아웃"
+                        android:textColor="#FFFFFF"
+                        android:textSize="15sp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="0.0"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/OwnerMainView_userHello_tv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="DamA님 환영합니다."
+                        android:textColor="@color/black"
+                        android:textSize="25sp"
+                        android:textStyle="bold"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toStartOf="@+id/OwnerMainView_logout_btn"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        tools:listitem="@layout/fragment_usercard_rental"></androidx.recyclerview.widget.RecyclerView>
+                        app:layout_constraintTop_toTopOf="parent" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
             </androidx.cardview.widget.CardView>
+
+            <!--            현재 대여중인 텀블러 -->
+
+            <!--            기간 만료 텀블러-->
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -31,12 +31,10 @@ class DetailCafeActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityDetailCafeBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        setSupportActionBar(binding.DetailCafeViewToolbarTb).apply {
-            title = "내카페"
-        }
         supportActionBar?.apply {
             setDisplayHomeAsUpEnabled(true)
             setDisplayShowHomeEnabled(true)
+            setDisplayShowTitleEnabled(false)
         }
 
 
@@ -75,7 +73,7 @@ class DetailCafeActivity : AppCompatActivity() {
                 } else {
                     tumbler = cafeData.rentalTumbler!!.toInt()
                 }
-                cafe_tumbler.setText((cafeData.totalTumbler!!.toInt() - tumbler).toString())
+                cafe_tumbler.text = (cafeData.totalTumbler!!.toInt() - tumbler).toString()
                 showButton(cafeData, ownerUid)
             }
         }.addOnFailureListener {

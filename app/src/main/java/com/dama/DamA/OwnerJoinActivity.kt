@@ -25,19 +25,6 @@ class OwnerJoinActivity : AppCompatActivity() {
         setContentView(binding.root)
 
 
-
-
-        //사장님용 뷰 화면 to do delete
-        binding.OwnerJoinViewJoinBtn.setOnClickListener {
-
-            var email = binding.OwnerJoinViewEmailTextBoxEditTxt.text.toString()
-            var password = binding.OwnerJoinViewPasswordTextBoxEditTxt.text.toString()
-            var username = binding.OwnerJoinViewNameTextBoxEditTxt.text.toString()
-            var age = binding.OwnerJoinViewAgeTextBoxEditTxt.text.toString()
-
-            startActivity(Intent(this,OwnerMainActivity::class.java))
-        }
-
         //회원용 버튼
         binding.OwnerJoinViewUserBtn.setOnClickListener {
             onBackPressed()

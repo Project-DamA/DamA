@@ -1,17 +1,22 @@
 package com.dama.DamA
+
 import android.app.Activity
 import android.net.Uri
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.bumptech.glide.load.resource.bitmap.CenterCrop
+import com.bumptech.glide.load.resource.bitmap.RoundedCorners
 import com.dama.DamA.databinding.FragmentCafeImageBinding
 
-class ImageListAdapter(private val List : ArrayList<Uri>,private var activity:Activity): RecyclerView.Adapter<ImageListAdapter.ViewHolder>(){
+class ImageListAdapter(private val List: ArrayList<Uri>, private var activity: Activity) :
+    RecyclerView.Adapter<ImageListAdapter.ViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val binding:FragmentCafeImageBinding = FragmentCafeImageBinding.inflate(
-            LayoutInflater.from(parent.context),parent,false)
-        return ViewHolder(binding,activity)
+        val binding: FragmentCafeImageBinding = FragmentCafeImageBinding.inflate(
+            LayoutInflater.from(parent.context), parent, false
+        )
+        return ViewHolder(binding, activity)
 
     }
 
@@ -23,11 +28,12 @@ class ImageListAdapter(private val List : ArrayList<Uri>,private var activity:Ac
         return List.size
     }
 
-    class ViewHolder(val binding: FragmentCafeImageBinding, private val activity:Activity) : RecyclerView.ViewHolder(binding.root){
+    class ViewHolder(val binding: FragmentCafeImageBinding, private val activity: Activity) :
+        RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(uri:Uri){
+        fun bind(uri: Uri) {
             Glide.with(activity)
-                .load(uri)
+                .load(uri).transform(CenterCrop(), RoundedCorners(80))
                 .into(binding.CafeImageImageIv)
         }
 
